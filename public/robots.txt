@@ -1,0 +1,12 @@
+# https://www.goacarrental.in robots.txt
+User-agent: *
+Allow: /
+Allow: /blogs/
+Allow: /cars/
+
+# Disallow admin area
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.goacarrental.in/sitemap.xml 

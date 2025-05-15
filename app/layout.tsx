@@ -103,8 +103,10 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/TRY1.jpg"
+          href="/images/TRY1.avif"
           fetchPriority="high"
+          imageSizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
+          imageSrcSet="/images/TRY1.avif?w=640 640w, /images/TRY1.avif?w=750 750w, /images/TRY1.avif?w=828 828w, /images/TRY1.avif?w=1080 1080w"
         />
         
         {/* Prefetch other critical resources */}

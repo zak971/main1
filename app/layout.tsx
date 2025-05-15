@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"

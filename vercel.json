@@ -53,7 +53,7 @@
   "crons": [],
   "git": {
     "deploymentEnabled": {
-      "main": true
+      "new-main": true
     }
   }
 } 

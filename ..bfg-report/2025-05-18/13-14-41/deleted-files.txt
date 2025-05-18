@@ -1,0 +1,1 @@
+4a328129cfcea986237a852b57911eae7a4c7b2f 148480512 next-swc.win32-x64-msvc.node

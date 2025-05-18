@@ -41,7 +41,7 @@ export default function CarsPage() {
   })
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section - Optimized */}
      
 
@@ -59,15 +59,18 @@ export default function CarsPage() {
 
         <div className="container relative px-4 sm:px-6 mx-auto">
           {/* Section Header - Optimized */}
-          <div className="flex flex-col items-center mb-12 sm:mb-16 text-center">
+          <div className="flex flex-col items-center mb-12 sm:mb-16 text-center pt-10">
+          <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
+              <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Our Fleet</span>
+            </div>
             
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
-             Find the Perfect Self-Drive Car
+             Self Drive Car Rental Goa
             </h1>
-            <h2 className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
-            Freedom, flexibility, and the perfect drive  all in one place.<br />
-            Whether you're planning a quick beach run or a long Goan road trip, we've got the Self drive car to match your vibe.
-            </h2>
+            <p className="mt-4 max-w-4xl text-base sm:text-lg text-gray-300 leading-relaxed">
+              Looking for a hassle-free self-drive car rental in Goa? Our fleet offers everything from compact hatchbacks to luxury SUVs, perfect for exploring Goa at your own pace. Whether you're arriving at Goa Airport or staying at a beach resort, we provide doorstep delivery and 24/7 support. Book online and enjoy the freedom of driving across Goa's scenic roads with our reliable, sanitized, and affordable rental cars.
+            </p>
+
             
             {/* Search Filter */}
             <div className="w-full max-w-lg mt-6 sm:mt-8">
@@ -130,6 +133,125 @@ export default function CarsPage() {
               </div>
             )}
           </div>
+
+          {/* FAQ Section */}
+          <section className="mt-20 mb-16">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
+                <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Common Questions</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">Find answers to common questions about our car rental services in Goa</p>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              {/* FAQ Item 1 */}
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300">
+                <button 
+                  className="w-full px-6 py-4 text-left focus:outline-none"
+                  onClick={() => {
+                    const content = document.getElementById('faq-1-content');
+                    content?.classList.toggle('hidden');
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-white">How much does it cost to rent a self-drive car in Goa?</h3>
+                    <span className="text-orange-400 text-xl">+</span>
+                  </div>
+                </button>
+                <div id="faq-1-content" className="hidden px-6 pb-4">
+                  <p className="text-gray-300 leading-relaxed">The cost ranges from ₹999 to ₹3,000 per day depending on the car type and season. We offer special discounts for weekly and monthly rentals. All our prices include insurance, 24/7 roadside assistance, and free delivery to major locations.</p>
+                </div>
+              </div>
+
+              {/* FAQ Item 2 */}
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300">
+                <button 
+                  className="w-full px-6 py-4 text-left focus:outline-none"
+                  onClick={() => {
+                    const content = document.getElementById('faq-2-content');
+                    content?.classList.toggle('hidden');
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-white">Can I get the car delivered to Goa Airport or my hotel?</h3>
+                    <span className="text-orange-400 text-xl">+</span>
+                  </div>
+                </button>
+                <div id="faq-2-content" className="hidden px-6 pb-4">
+                  <p className="text-gray-300 leading-relaxed">Yes, we offer free delivery to Goa Airport, railway stations, and major hotels across the state. For other locations, a nominal delivery charge may apply. Our team ensures a smooth handover process with a thorough vehicle inspection.</p>
+                </div>
+              </div>
+
+              {/* FAQ Item 3 */}
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300">
+                <button 
+                  className="w-full px-6 py-4 text-left focus:outline-none"
+                  onClick={() => {
+                    const content = document.getElementById('faq-3-content');
+                    content?.classList.toggle('hidden');
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-white">What documents are required for renting a car?</h3>
+                    <span className="text-orange-400 text-xl">+</span>
+                  </div>
+                </button>
+                <div id="faq-3-content" className="hidden px-6 pb-4">
+                  <p className="text-gray-300 leading-relaxed">You'll need a valid driving license and one government-issued ID proof (Aadhar Card, PAN Card, or Passport). International travelers need a valid international driving permit along with their passport. All documents should be valid for the entire rental period.</p>
+                </div>
+              </div>
+
+              {/* FAQ Item 4 */}
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300">
+                <button 
+                  className="w-full px-6 py-4 text-left focus:outline-none"
+                  onClick={() => {
+                    const content = document.getElementById('faq-4-content');
+                    content?.classList.toggle('hidden');
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-white">What is included in the rental price?</h3>
+                    <span className="text-orange-400 text-xl">+</span>
+                  </div>
+                </button>
+                <div id="faq-4-content" className="hidden px-6 pb-4">
+                  <p className="text-gray-300 leading-relaxed">Our rental prices include comprehensive insurance, 24/7 roadside assistance, free delivery to major locations, and unlimited kilometers. Additional services like GPS and child seats are available at extra cost.</p>
+                </div>
+              </div>
+
+              {/* FAQ Item 5 */}
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300">
+                <button 
+                  className="w-full px-6 py-4 text-left focus:outline-none"
+                  onClick={() => {
+                    const content = document.getElementById('faq-5-content');
+                    content?.classList.toggle('hidden');
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-white">What is your cancellation policy?</h3>
+                    <span className="text-orange-400 text-xl">+</span>
+                  </div>
+                </button>
+                <div id="faq-5-content" className="hidden px-6 pb-4">
+                  <p className="text-gray-300 leading-relaxed">Free cancellation is available up to 24 hours before the rental start time. Cancellations made within 24 hours may incur a small fee. In case of no-show, the full rental amount will be charged. We recommend booking early during peak season to ensure availability.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Support */}
+            <div className="text-center mt-12">
+              <p className="text-gray-400 mb-4">Still have questions?</p>
+              <a 
+                href="tel:+919307055218" 
+                className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
+              >
+                Contact Support
+              </a>
+            </div>
+          </section>
         </div>
       </section>
     </div>

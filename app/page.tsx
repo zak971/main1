@@ -74,9 +74,9 @@ export default function Home() {
                 <span className="text-sm font-medium text-white tracking-wide uppercase">Featured Cars</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-4 leading-tight transform transition-all duration-500 hover:scale-105 hover:text-amber-400 shadow-lg hover:shadow-xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-4 leading-tight transform transition-all duration-500 hover:scale-105 hover:text-amber-400 shadow-lg hover:shadow-xl">
               Top-Rated Rental Cars in Goa
-              </h1>
+              </h2>
 
 
               <p className="max-w-1xl text-base sm:text-lg md:text-xl text-gray-400 font-normal leading-relaxed">
@@ -253,6 +253,9 @@ export default function Home() {
           </div>
         </div>
 
+        
+
+        
         {/* Contact Section */}
         <section id="contact" className="relative py-8 sm:py-10 overflow-hidden mt-0">
           <div className="container relative px-4 sm:px-6 mx-auto">

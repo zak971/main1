@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",
-  description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles. From luxury sedans to spacious SUVs, we offer 24/7 support, competitive rates, and easy online booking. Perfect for tourists and locals alike.",
+  description: "Rent a car in Goa hassle-free! Choose from luxury, SUV, and budget self-drive cars with 24/7 support, airport delivery, and easy online booking. Book now for the best rates!",
   keywords: "car rental goa, self drive car goa, luxury car rental goa, car hire goa, best car rental in goa, affordable car rental in goa, goa car rental, goa car hire, goa car rental service",
   metadataBase: process.env.NODE_ENV === 'development' 
     ? new URL('https://localhost:3000') 

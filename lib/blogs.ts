@@ -188,6 +188,33 @@ const blogsData: BlogType[] = [
           </p>
         </div>
       </div>
+
+      <div class="mt-16">
+        <h2 class="text-3xl font-bold mb-8 text-white">Frequently Asked Questions</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold text-white mb-2">Q) What is the best time to visit Dudhsagar Falls?</h3>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              The best time to visit Dudhsagar Falls is during or just after the monsoon season (June to September) when the falls are in full glory. However, be sure to check weather conditions and road accessibility before planning your visit.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-white mb-2">Q) Is it safe to drive to these locations?</h3>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              Yes, most locations are accessible by well-maintained roads. However, for places like Dudhsagar Falls and Mollem National Park, it's recommended to use a sturdy SUV or off-road vehicle for better comfort and safety.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-white mb-2">Q) Do I need permits to visit any of these places?</h3>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              Yes, some locations like Mollem National Park and Dudhsagar Falls require permits. It's best to check with local authorities or your car rental provider for the latest permit requirements before visiting.
+            </p>
+          </div>
+        </div>
+      </div>
     `
   },
   {
@@ -420,23 +447,23 @@ const blogsData: BlogType[] = [
         
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold text-white mb-2">Q) Is it safe to rent a self-drive car in Goa?</h3>
+            <h3 class="text-xl font-semibold text-white mb-2">Q) What is the minimum age requirement for car rental in Goa?</h3>
             <p class="text-gray-300 text-lg leading-relaxed">
-              Yes, it's safe as long as you choose a verified provider and carry all required documents. Goa is tourist-friendly and has well-maintained roads.
+              The minimum age requirement is typically 21 years, and you must have a valid driving license for at least 1 year. Some companies may have different age requirements for specific vehicle categories.
             </p>
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold text-white mb-2">Q) What documents are needed for car rental?</h3>
+            <h3 class="text-xl font-semibold text-white mb-2">Q) What happens if I damage the rental car?</h3>
             <p class="text-gray-300 text-lg leading-relaxed">
-              You'll need a valid driving license and any government-issued ID like Aadhaar or Passport. International tourists need an International Driving Permit.
+              Most rental companies provide insurance coverage. However, you may be liable for a deductible amount. It's important to read the insurance terms carefully and consider additional coverage if needed.
             </p>
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold text-white mb-2">Q) Can I get the car delivered to my hotel or airport?</h3>
+            <h3 class="text-xl font-semibold text-white mb-2">Q) Can I extend my rental period?</h3>
             <p class="text-gray-300 text-lg leading-relaxed">
-              Yes, most reputable services like <a href="https://www.goacarrental.in" class="text-yellow-400 hover:text-yellow-300 underline">GoaCarRental.in</a> offer doorstep delivery and airport pickup/drop services.
+              Yes, you can usually extend your rental period, subject to vehicle availability. Contact your rental provider at least 24 hours before your scheduled return time to arrange an extension.
             </p>
           </div>
         </div>
@@ -647,11 +674,37 @@ const blogsData: BlogType[] = [
             </div>
 
             <div>
-              <h3 class="text-xl font-semibold text-white mb-2">Q) Can I get pickup and drop at the airport or hotel?</h3>
+              <h3 class="text-xl font-semibold text-white mb-2">Q) Can I get pickup and drop at the airport or hotel?</p>
               <p class="text-gray-300">Yes, <a href="https://www.goacarrental.in" class="text-yellow-400 hover:text-yellow-300 underline">GoaCarRental.in</a> provides doorstep and airport delivery for both rental types.</p>
             </div>
           </div>
 
+          <div class="mt-16">
+            <h2 class="text-3xl font-bold mb-8 text-white">Frequently Asked Questions</h2>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-2">Q) How much should I tip my chauffeur?</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                  While tipping is not mandatory, it's customary to tip your chauffeur 10-15% of the total service cost for good service. You can also offer a daily tip of ₹200-500 depending on the service quality.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-2">Q) Can I change my rental type during my stay?</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                  Yes, many rental companies allow you to switch between self-drive and chauffeur-driven services during your stay, subject to availability and additional charges. Contact your rental provider to arrange the change.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-2">Q) What are the typical working hours for chauffeurs?</h3>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                  Standard chauffeur service hours are typically 8-10 hours per day. Overtime charges may apply for extended hours. Most companies offer 24/7 service, but it's best to confirm the terms with your rental provider.
+                </p>
+              </div>
+            </div>
+          </div>
           
       </div>
     `

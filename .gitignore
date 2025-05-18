@@ -41,3 +41,10 @@ next-env.d.ts
 
 # Netlify
 .netlify
+
+# Ignore Next.js SWC binary files
+**/node_modules/@next/swc-*
+**/node_modules/@next/.swc-*
+
+# Ignore build cache
+.next/cache/

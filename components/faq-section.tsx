@@ -98,12 +98,15 @@ export function FAQSection() {
     <div className="w-full py-1">
       <div className="container px-4 sm:px-6 mx-auto">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
+              <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Common Questions</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-400 text-lg">
-              Find answers to common questions about our car rental services
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Find answers to common questions about our car rental services in Goa
             </p>
           </div>
           
@@ -111,20 +114,18 @@ export function FAQSection() {
             {faqs.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
-                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden"
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300"
               >
                 <button
                   onClick={() => toggleCategory(category.category)}
-                  className="w-full px-6 py-3 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+                  className="w-full px-6 py-4 text-left focus:outline-none"
                 >
-                  <span className="text-xl font-semibold text-white">
-                    {category.category}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-white/70 transition-transform duration-200 ${
-                      openCategory === category.category ? "rotate-180" : ""
-                    }`}
-                  />
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-white">
+                      {category.category}
+                    </h3>
+                    <span className="text-orange-400 text-xl">+</span>
+                  </div>
                 </button>
                 
                 <div
@@ -138,26 +139,24 @@ export function FAQSection() {
                     {category.questions.map((faq, questionIndex) => (
                       <div
                         key={questionIndex}
-                        className="bg-white/5 rounded-lg overflow-hidden"
+                        className="bg-white/5 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden hover:bg-white/10 transition-all duration-300"
                       >
                         <button
                           onClick={() => toggleQuestion(questionIndex)}
-                          className="w-full px-4 py-2.5 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+                          className="w-full px-4 py-3 text-left focus:outline-none"
                         >
-                          <span className="text-lg font-medium text-white">
-                            {faq.question}
-                          </span>
-                          <ChevronDown
-                            className={`w-4 h-4 text-white/70 transition-transform duration-200 ${
-                              openQuestion === questionIndex ? "rotate-180" : ""
-                            }`}
-                          />
+                          <div className="flex items-center justify-between">
+                            <span className="text-lg font-medium text-white">
+                              {faq.question}
+                            </span>
+                            <span className="text-orange-400 text-xl">+</span>
+                          </div>
                         </button>
                         
                         <div
                           className={`px-4 transition-all duration-200 ease-in-out ${
                             openQuestion === questionIndex
-                              ? "max-h-96 opacity-100 py-2.5"
+                              ? "max-h-96 opacity-100 py-3"
                               : "max-h-0 opacity-0"
                           }`}
                         >
@@ -174,13 +173,11 @@ export function FAQSection() {
           </div>
 
           {/* Contact Support */}
-          <div className="mt-8 text-center">
-            <p className="text-gray-400 mb-3">
-              Still have questions? We're here to help!
-            </p>
+          <div className="mt-12 text-center">
+            <p className="text-gray-400 mb-4">Still have questions?</p>
             <a
               href="tel:+919307055218"
-              className="inline-flex items-center justify-center px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call Us: +91 9307055218

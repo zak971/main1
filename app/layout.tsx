@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",
+  title: "Goa Car Rental | Affordable Self-Drive & Luxury Cars in Goa",
   description: "Rent a car in Goa hassle-free! Choose from luxury, SUV, and budget self-drive cars with 24/7 support, airport delivery, and easy online booking. Book now for the best rates!",
   keywords: "car rental goa, self drive car goa, luxury car rental goa, car hire goa, best car rental in goa, affordable car rental in goa, goa car rental, goa car hire, goa car rental service",
   metadataBase: process.env.NODE_ENV === 'development' 
@@ -48,14 +48,15 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Goa Car Rentals | Self-Drive & Affordable Car Hire in Goa",
-    description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles. From luxury sedans to spacious SUVs, we offer 24/7 support, competitive rates, and easy online booking. Perfect for tourists and locals alike.",
+    title: "Goa Car Rental | Premium Self-Drive Cars at Low Rates",  
+    description: "Explore Goa your way! Rent premium self-drive cars at affordable rates. 24/7 support, airport pickup, and instant booking – hassle-free travel starts here!",
     images: [
       {
-        url: "https://www.goacarrental.in/images/og-image.jpg",
+        url: "https://www.goacarrental.in/images/logo.png",
         width: 1200,
         height: 630,
-        alt: "Goa Car Rentals"
+        alt: "Goa Car Rentals",
+        type: "image/png"
       }
     ],
     locale: "en_IN",
@@ -63,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Goa Car Rentals | Self-Drive & Luxury Car Hire in Goa",
+    title: "Goa Car Rental | Self-Drive & Luxury Car Hire in Goa",
     description: "Experience premium car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles. From luxury sedans to spacious SUVs, we offer 24/7 support and competitive rates.",
-    images: ["https://goacarrental.in/images/twitter-image.jpg"]
+    images: ["https://www.goacarrental.in/images/logo.png"]
   },
   icons: {
     icon: [

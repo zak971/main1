@@ -57,7 +57,7 @@ export function Navbar() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-neutral-900/90 to-neutral-800/90" />
         
         <div className="container mx-auto relative">
-          <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 pt-2">
+          <div className="flex items-center justify-between h-16 sm:h-20 px-2 sm:px-6 pt-2">
             {/* Logo - Only show on desktop */}
             <Link 
               href="/" 
@@ -80,7 +80,7 @@ export function Navbar() {
             <div className="flex md:hidden items-center justify-between w-full">
               <Link 
                 href="https://www.goacarrental.in" 
-                className="flex items-center space-x-2 text-lg font-bold text-white pt-1 font-heading"
+                className="flex items-center space-x-1 text-lg font-bold text-white pt-1 font-heading -ml-2"
               >
                 <Image
                   src="/images/logo.png"
@@ -94,14 +94,21 @@ export function Navbar() {
               </Link>
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-7 w-7 p-0 hover:bg-black/20 relative flex items-center justify-center"
+                  <button
+                    type="button"
+                    className="h-8 w-8 p-0 hover:bg-black/20 relative flex items-center justify-center text-white hover:text-white focus:text-white active:text-white bg-transparent border-none outline-none"
+                    style={{ color: 'white' }}
                   >
-                    <Menu className="w-5 h-5" />
+                    <Menu 
+                      className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'}`}
+                      style={{ color: 'white', stroke: 'white' }}
+                    />
+                    <X 
+                      className={`w-5 h-5 absolute transition-transform duration-300 ${isOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'}`}
+                      style={{ color: 'white', stroke: 'white' }}
+                    />
                     <span className="sr-only">Toggle menu</span>
-                  </Button>
+                  </button>
                 </SheetTrigger>
 
                 {/* Mobile Menu Content */}

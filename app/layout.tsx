@@ -33,8 +33,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Goa Car Rental | Premium Self-Drive Cars at Low Rates",
-  description: "Explore Goa your way! Rent premium self-drive cars at affordable rates. 24/7 support, airport pickup, and instant booking – hassle-free travel starts here!",
+  title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",
+  description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles.",
   keywords: "car rental goa, self drive car goa, luxury car rental goa, car hire goa, best car rental in goa, affordable car rental in goa, goa car rental, goa car hire, goa car rental service",
   metadataBase: process.env.NODE_ENV === 'development' 
     ? new URL('https://localhost:3000') 
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Goa Car Rental | Premium Self-Drive Cars at Low Rates",  
-    description: "Explore Goa your way! Rent premium self-drive cars at affordable rates. 24/7 support, airport pickup, and instant booking – hassle-free travel starts here!",
+    title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",  
+    description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles.",
     images: [
       {
         url: "https://www.goacarrental.in/images/logo.png",
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Goa Car Rental | Self-Drive & Luxury Car Hire in Goa",
-    description: "Rent a self-drive car in Goa at unbeatable rates! Airport delivery, 24/7 support, wide car selection & easy online booking. Drive your Goa adventure today!",
+    title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",
+    description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles.",
     images: ["https://www.goacarrental.in/images/logo.png"],
     creator: "@goacarrental",
     site: "@goacarrental"

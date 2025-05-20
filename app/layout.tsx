@@ -33,8 +33,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",
-  description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles.",
+  title: "Affordable Self Drive Car Rental in Goa – No Hidden Charges | GoaCarRental.in",
+  description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
   keywords: "car rental goa, self drive car goa, luxury car rental goa, car hire goa, best car rental in goa, affordable car rental in goa, goa car rental, goa car hire, goa car rental service",
   metadataBase: process.env.NODE_ENV === 'development' 
     ? new URL('https://localhost:3000') 
@@ -48,37 +48,36 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",  
-    description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles.",
-    images: [
-      {
-        url: "https://www.goacarrental.in/images/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Goa Car Rentals",
-        type: "image/png"
-      }
-    ],
-    locale: "en_IN",
-    type: "website",
-    siteName: "Goa Car Rental"
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://www.goacarrental.in',
+    siteName: 'GoaCarRental.in',
+    title: "Affordable Self Drive Car Rental in Goa | No Hidden Charges | GoaCarRental.in",
+    description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
+    images: [{
+      url: 'https://www.goacarrental.in/images/TRY1.jpg',
+      width: 1920,
+      height: 1080,
+      alt: 'Premium Car Rental Services in Goa - Self Drive Cars Available',
+      type: 'image/jpeg'
+    }]
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Goa Car Rentals | Affordable Self-Drive & Luxury Cars in Goa",
-    description: "Experience premium and affordable car rental services in Goa with our extensive fleet of self-drive and chauffeur-driven vehicles.",
-    images: ["https://www.goacarrental.in/images/logo.png"],
-    creator: "@goacarrental",
-    site: "@goacarrental"
+    card: 'summary_large_image',
+    site: '@goacarrental',
+    title: "Affordable Self Drive Car Rental in Goa | No Hidden Charges | GoaCarRental.in",
+    description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
+    images: ['https://www.goacarrental.in/images/TRY1.jpg'],
+    creator: '@goacarrental'
   },
   other: {
-    'image': 'https://www.goacarrental.in/images/logo.png',
-    'og:image': 'https://www.goacarrental.in/images/logo.png',
-    'og:image:width': '1200',
-    'og:image:height': '630',
-    'og:image:alt': 'Goa Car Rentals',
-    'twitter:image': 'https://www.goacarrental.in/images/logo.png',
-    'twitter:image:alt': 'Goa Car Rentals',
+    'image': 'https://www.goacarrental.in/images/TRY1.jpg',
+    'og:image': 'https://www.goacarrental.in/images/TRY1.jpg',
+    'og:image:width': '1920',
+    'og:image:height': '1080',
+    'og:image:alt': 'Premium Car Rental Services in Goa - Self Drive Cars Available',
+    'twitter:image': 'https://www.goacarrental.in/images/TRY1.jpg',
+    'twitter:image:alt': 'Premium Car Rental Services in Goa - Self Drive Cars Available',
     'robots': 'index, follow, max-image-preview:large',
     'googlebot': 'index, follow, max-image-preview:large'
   },

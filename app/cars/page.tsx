@@ -7,6 +7,7 @@ import Image from "next/image"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import type { CarType } from "@/types/car"
+import { Shield, Clock, CheckCircle, MapPin } from "lucide-react"
 
 export default function CarsPage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -240,18 +241,112 @@ export default function CarsPage() {
                 </div>
               </div>
             </div>
+          </section>
 
-            {/* Contact Support */}
-            <div className="text-center mt-12">
-              <p className="text-gray-400 mb-4">Still have questions?</p>
-              <a 
-                href="tel:+919307055218" 
-                className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
-              >
-                Contact Support
-              </a>
+          {/* Why Choose Us Section */}
+          <section className="mb-16">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
+                <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Why Choose Us</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Experience the Best Car Rental Service in Goa</h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">We're committed to providing you with the best car rental experience in Goa</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-orange-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Fully Insured</h3>
+                <p className="text-gray-400">All our vehicles come with comprehensive insurance coverage for your peace of mind.</p>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-orange-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">24/7 Support</h3>
+                <p className="text-gray-400">Round-the-clock customer support and roadside assistance whenever you need it.</p>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <CheckCircle className="w-6 h-6 text-orange-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Well-Maintained Fleet</h3>
+                <p className="text-gray-400">Regularly serviced and sanitized vehicles for a safe and comfortable ride.</p>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <MapPin className="w-6 h-6 text-orange-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Doorstep Delivery</h3>
+                <p className="text-gray-400">Free delivery to airport, railway stations, and major hotels across Goa.</p>
+              </div>
             </div>
           </section>
+
+          {/* Rental Terms Section */}
+          <section className="mb-16">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
+                <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Rental Terms</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Simple and Transparent Rental Terms</h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">Everything you need to know about renting a car with us</p>
+            </div>
+
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-white mb-4">Rental Duration</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Minimum rental period: 24 hours</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Weekly and monthly rentals available</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Flexible pickup and drop-off times</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-white mb-4">Pricing & Payments</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Starting from ₹999 per day</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Security deposit: ₹5,000 (refundable)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />
+                    <span className="text-gray-300">Multiple payment options available</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Support */}
+          <div className="text-center mt-12">
+            <p className="text-gray-400 mb-4">Still have questions?</p>
+            <a 
+              href="tel:+919307055218" 
+              className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
+            >
+              Contact Support
+            </a>
+          </div>
         </div>
       </section>
     </div>

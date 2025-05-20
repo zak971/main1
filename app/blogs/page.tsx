@@ -26,7 +26,7 @@ export default async function Page() {
               <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Our Latest Articles</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
-             Goa Car Rental Travel Guides & Tips
+             Goa Car Rental Travel Guides & Tips.
             </h1>
             <p className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-400 font-medium leading-relaxed">
             Discover travel tips, hidden gems, and destination guides — all designed to inspire your next road trip with the perfect rental car.

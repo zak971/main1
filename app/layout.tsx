@@ -55,11 +55,11 @@ export const metadata: Metadata = {
     title: "Affordable Self Drive Car Rental in Goa | No Hidden Charges | GoaCarRental.in",
     description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
     images: [{
-      url: 'https://www.goacarrental.in/images/TRY1.jpg',
-      width: 1920,
-      height: 1080,
-      alt: 'Premium Car Rental Services in Goa - Self Drive Cars Available',
-      type: 'image/jpeg'
+      url: 'https://www.goacarrental.in/images/logo.png',
+      width: 1200,
+      height: 630,
+      alt: 'Goa Car Rental - Your Trusted Car Rental Partner',
+      type: 'image/png'
     }]
   },
   twitter: {
@@ -67,17 +67,17 @@ export const metadata: Metadata = {
     site: '@goacarrental',
     title: "Affordable Self Drive Car Rental in Goa | No Hidden Charges | GoaCarRental.in",
     description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
-    images: ['https://www.goacarrental.in/images/TRY1.jpg'],
+    images: ['https://www.goacarrental.in/images/logo.png'],
     creator: '@goacarrental'
   },
   other: {
-    'image': 'https://www.goacarrental.in/images/TRY1.jpg',
-    'og:image': 'https://www.goacarrental.in/images/TRY1.jpg',
-    'og:image:width': '1920',
-    'og:image:height': '1080',
-    'og:image:alt': 'Premium Car Rental Services in Goa - Self Drive Cars Available',
-    'twitter:image': 'https://www.goacarrental.in/images/TRY1.jpg',
-    'twitter:image:alt': 'Premium Car Rental Services in Goa - Self Drive Cars Available',
+    'image': 'https://www.goacarrental.in/images/logo.png',
+    'og:image': 'https://www.goacarrental.in/images/logo.png',
+    'og:image:width': '1200',
+    'og:image:height': '630',
+    'og:image:alt': 'Goa Car Rental - Your Trusted Car Rental Partner',
+    'twitter:image': 'https://www.goacarrental.in/images/logo.png',
+    'twitter:image:alt': 'Goa Car Rental - Your Trusted Car Rental Partner',
     'robots': 'index, follow, max-image-preview:large',
     'googlebot': 'index, follow, max-image-preview:large'
   },

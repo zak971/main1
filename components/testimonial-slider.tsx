@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { PlaceholderImage } from "@/components/ui/placeholder-image"
 
 type Testimonial = {
   id: number
@@ -24,7 +25,7 @@ const testimonials: Testimonial[] = [
     role: "Business Traveler",
     location: "Delhi",
     rating: 5,
-    image: "/images/friend.jpg",
+    image: "/images/testi.jpg",
     text: "Exceptional service and an outstanding car. This made my trip to Goa absolutely seamless.",
     date: "2 weeks ago"
   },
@@ -34,7 +35,7 @@ const testimonials: Testimonial[] = [
     role: "Tourist",
     location: "Mumbai",
     rating: 5,
-    image: "/images/men.jpg",
+    image: "/images/testi.jpg",
     text: "Rented a car for 3 days and had zero complaints. Smooth, efficient, and stylish!",
     date: "1 month ago"
   },
@@ -44,7 +45,7 @@ const testimonials: Testimonial[] = [
     role: "Family Vacation",
     location: "UK",
     rating: 4,
-    image: "/images/about.jpg",
+    image: "/images/testi.jpg",
     text: "Perfect vehicle for our family road trip across Goa. Spacious and clean!",
     date: "2 months ago"
   },
@@ -54,7 +55,7 @@ const testimonials: Testimonial[] = [
     role: "Solo Traveler",
     location: "Bangalore",
     rating: 5,
-    image: "/images/friend.jpg",
+    image: "/images/testi.jpg",
     text: "The car was in perfect condition and the service was top-notch. Highly recommend!",
     date: "1 month ago"
   },
@@ -64,7 +65,7 @@ const testimonials: Testimonial[] = [
     role: "Honeymoon Trip",
     location: "Singapore",
     rating: 5,
-    image: "/images/men.jpg",
+    image: "/images/testi.jpg",
     text: "Made our honeymoon in Goa special. The car was luxurious and delivery was on time.",
     date: "3 months ago"
   },
@@ -74,7 +75,7 @@ const testimonials: Testimonial[] = [
     role: "Local Resident",
     location: "Goa",
     rating: 4,
-    image: "/images/about.jpg",
+    image: "/images/testi.jpg",
     text: "Even as a local, I prefer their rentals when I need a car. Reliable and professional.",
     date: "2 weeks ago"
   },
@@ -84,7 +85,7 @@ const testimonials: Testimonial[] = [
     role: "Corporate Event",
     location: "Australia",
     rating: 5,
-    image: "/images/friend.jpg",
+    image: "/images/testi.jpg",
     text: "Arranged multiple cars for our corporate retreat. The service was impeccable.",
     date: "1 month ago"
   },
@@ -94,7 +95,7 @@ const testimonials: Testimonial[] = [
     role: "Weekend Getaway",
     location: "Pune",
     rating: 5,
-    image: "/images/men.jpg",
+    image: "/images/testi.jpg",
     text: "Quick booking, clean car, and transparent pricing. Will rent again!",
     date: "3 weeks ago"
   },
@@ -104,7 +105,7 @@ const testimonials: Testimonial[] = [
     role: "International Tourist",
     location: "China",
     rating: 4,
-    image: "/images/about.jpg",
+    image: "/images/testi.jpg",
     text: "The WhatsApp booking made it so easy as a foreign visitor. Great experience!",
     date: "2 months ago"
   }
@@ -235,8 +236,8 @@ export default function TestimonialSlider() {
                       
                       {/* Testimonial text */}
                       <p className="text-neutral-100 text-sm sm:text-base mb-4 relative z-10 flex-grow font-medium">
-                      "{testimonial.text}"
-                    </p>
+                        "{testimonial.text}"
+                      </p>
                       
                       {/* Rating */}
                       <div className="flex mb-3 justify-center">
@@ -248,19 +249,35 @@ export default function TestimonialSlider() {
                         ))}
                       </div>
                       
-                      {/* User info */}
-                      <div className="flex flex-col items-center">
-                        <div className="relative w-10 h-10 rounded-full overflow-hidden border border-neutral-500/80 mb-2 flex-shrink-0 shadow">
-                          <Image 
-                            src={testimonial.image} 
-                            alt={testimonial.name} 
-                            fill
-                            className="object-cover"
-                          />
+                      {/* Profile */}
+                      <div className="flex items-center space-x-3">
+                        <div className="relative w-10 h-10 rounded-full overflow-hidden bg-neutral-800">
+                          {testimonial.image ? (
+                            <Image
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              fill
+                              sizes="(max-width: 768px) 40px, 40px"
+                              className="object-cover"
+                              loading="lazy"
+                              quality={75}
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                              }}
+                            />
+                          ) : (
+                            <PlaceholderImage
+                              width={40}
+                              height={40}
+                              alt={`${testimonial.name}'s profile picture`}
+                              className="rounded-full"
+                            />
+                          )}
                         </div>
-                        <div className="text-center">
-                          <h3 className="text-white text-sm font-medium">{testimonial.name}</h3>
-                          <p className="text-neutral-200 text-xs">{testimonial.role} — {testimonial.location}</p>
+                        <div className="text-left">
+                          <h4 className="text-white font-medium text-sm">{testimonial.name}</h4>
+                          <p className="text-neutral-400 text-xs">{testimonial.role}</p>
                         </div>
                       </div>
                       

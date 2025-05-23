@@ -10,8 +10,8 @@ export default async function Page() {
       {/* Hero Section */}
       <section className="relative py-12 sm:py-16 overflow-hidden">
         {/* Background Layers */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
-          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 mix-blend-overlay" />
+        <div className="fixed inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-10 mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         </div>
 

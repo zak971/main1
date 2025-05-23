@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Affordable Self Drive Car Rental in Goa – No Hidden Charges | GoaCarRental.in",
+  title: "Self Drive Car Rental in Goa | Affordable & Easy Booking",
   description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
   keywords: "car rental goa, self drive car goa, luxury car rental goa, car hire goa, best car rental in goa, affordable car rental in goa, goa car rental, goa car hire, goa car rental service",
   metadataBase: process.env.NODE_ENV === 'development' 
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: 'https://www.goacarrental.in',
     siteName: 'GoaCarRental.in',
-    title: "Affordable Self Drive Car Rental in Goa | No Hidden Charges | GoaCarRental.in",
+    title: "Self Drive Car Rental in Goa | Affordable & Easy Booking",
     description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
     images: [{
       url: 'https://www.goacarrental.in/images/logo.png',
@@ -104,29 +104,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Use correct font preloading */}
-        <link
-          rel="preload"
-          href="/fonts/inter-var.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        
-        {/* Preload critical images */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/TRY1.avif"
-          fetchPriority="high"
-          imageSizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
-          imageSrcSet="/images/TRY1.avif?w=640 640w, /images/TRY1.avif?w=750 750w, /images/TRY1.avif?w=828 828w, /images/TRY1.avif?w=1080 1080w"
-        />
-        
         {/* Prefetch other critical resources */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body className={inter.className}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900/20 via-neutral-900/10 to-transparent opacity-10 mix-blend-overlay" />
         <Navbar />
         <main className="min-h-screen">
           {children}

@@ -12,6 +12,7 @@ interface LazyImageProps {
   priority?: boolean
   fill?: boolean
   sizes?: string
+  quality?: number
 }
 
 export function LazyImage({ 
@@ -20,6 +21,7 @@ export function LazyImage({
   priority = false, 
   fill = false,
   sizes = "100vw",
+  quality = 75,
   ...props 
 }: LazyImageProps) {
   const [isLoading, setIsLoading] = useState(true)
@@ -32,10 +34,17 @@ export function LazyImage({
         priority={priority}
         fill={fill}
         sizes={sizes}
+        quality={quality}
+        loading={priority ? "eager" : "lazy"}
         className={`transition-opacity duration-300 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         } ${props.className || ''}`}
         onLoad={() => setIsLoading(false)}
+        onError={(e) => {
+          const target = e.target as HTMLImageElement
+          target.src = '/images/placeholder.jpg'
+          setIsLoading(false)
+        }}
         {...props}
       />
       {isLoading && (

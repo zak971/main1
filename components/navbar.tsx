@@ -41,9 +41,11 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/cars", label: "Our Cars" },
+    
     { href: "/blogs", label: "Blogs" },
     { href: "/#about", label: "About Us" },
     { href: "/#contact", label: "Contact" },
+    { href: "/luxury-cars", label: "Luxury Cars" },
   ]
 
   return (
@@ -61,36 +63,32 @@ export function Navbar() {
             {/* Logo - Only show on desktop */}
             <Link 
               href="/" 
-              className="hidden md:flex items-center space-x-2 sm:space-x-3 transition-all duration-300 hover:scale-105"
+              className="hidden md:flex items-center transition-all duration-300 hover:scale-105"
             >
               <Image
-                src="/images/logo.png"
+                src="/images/rename.png"
                 alt="Goa Car Rentals Logo"
-                width={40}
-                height={40}
-                className="h-8 w-auto sm:h-10"
+                width={400}
+                height={400}
+                className="h-28 w-auto sm:h-32"
                 priority
               />
-              <div className="text-base sm:text-lg md:text-xl font-bold text-white font-heading">
-                Goa Car Rentals
-              </div>
             </Link>
 
             {/* Mobile Header - Logo and Menu Button */}
             <div className="flex md:hidden items-center justify-between w-full">
               <Link 
                 href="https://www.goacarrental.in" 
-                className="flex items-center space-x-1 text-lg font-bold text-white pt-1 font-heading -ml-2"
+                className="flex items-center pt-1 -ml-2"
               >
                 <Image
-                  src="/images/logo.png"
+                  src="/images/rename.png"
                   alt="Goa Car Rentals Logo"
-                  width={24}
-                  height={24}
-                  className="h-6 w-auto"
+                  width={240}
+                  height={240}
+                  className="h-16 w-auto"
                   priority
                 />
-                <span>Goa Car Rental</span>
               </Link>
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
@@ -119,10 +117,7 @@ export function Navbar() {
                   <div className="flex flex-col h-full">
                     <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-800">
-                      {/* Brand / Title */}
-                      <div className="text-lg font-semibold text-white font-heading">
-                        Goa Car Rentals
-                      </div>
+                     
 
                       {/* Close Button */}
                       <SheetClose
@@ -179,20 +174,22 @@ export function Navbar() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center justify-center flex-1 mx-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:text-orange-500 relative"
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
+              <div className="flex items-center justify-center pl-16">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="group px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:text-orange-500 relative"
+                  >
+                    {link.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                ))}
+              </div>
             </nav>
 
             {/* Contact Buttons */}
-            <div className="hidden md:flex items-center space-x-3 sm:space-x-4">
+            <div className="hidden md:flex items-center justify-end space-x-3 sm:space-x-4">
               <Link 
                 href="tel:+919307055218" 
                 className="group flex items-center space-x-2 sm:space-x-3 px-4 py-2 bg-black/20 backdrop-blur-sm rounded-lg border border-white/10 hover:bg-black/30 transition-all duration-300"

@@ -4,6 +4,7 @@ export type CarType = {
   type: string
   carType: string
   image?: string
+  alt?: string
   images?: string[]
   price: number
   seats: number

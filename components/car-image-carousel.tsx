@@ -64,8 +64,12 @@ export function CarImageCarousel({ images, carName, onThumbnailClick }: CarImage
                   priority={index === 0}
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"
-                  quality={85}
+                  quality={75}
                   loading={index === 0 ? "eager" : "lazy"}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.src = getImageUrl('/car-placeholder.jpg')
+                  }}
                 />
               </div>
             </div>

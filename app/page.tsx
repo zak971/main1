@@ -44,7 +44,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Main Background Gradient */}
       <div className="fixed inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-10 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
       </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
                 <span className="text-sm font-medium text-white tracking-wide uppercase">Featured Cars</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-4 leading-tight transform transition-all duration-500 hover:scale-105 hover:text-amber-400 shadow-lg hover:shadow-xl">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 leading-tight ">
               Top-Rated Rental Cars in Goa
               </h2>
 
@@ -133,7 +133,7 @@ export default function Home() {
                 <span className="text-sm font-medium text-white tracking-wide uppercase">Why Choose Us</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-4 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 leading-tight">
                 Experience the Difference
               </h2>
 
@@ -371,7 +371,7 @@ export default function Home() {
             {/* Section Header */}
             <div className="flex flex-col items-center mb-12 text-center">
               <div className="inline-flex items-center justify-center px-4 py-2 mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
-                <span className="text-sm font-medium text-white tracking-wide uppercase">Ready to Explore</span>
+                <span className="text-sm font-medium font-bold text-white tracking-wide uppercase">Ready to Explore</span>
               </div>
               <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-white mb-6">
                Book Your Goa Ride Now – Quick, Easy & Affordable!
@@ -414,6 +414,13 @@ export default function Home() {
                 <p className="text-sm text-gray-400">Free delivery anywhere in Goa</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Section Divider */}
+        <div className="container mx-auto px-4 py-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
           </div>
         </div>
 

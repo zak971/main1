@@ -26,6 +26,12 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Disable automatic image preloading
+    unoptimized: false,
+    disableStaticImages: false,
   },
 
   // Modern optimizations
@@ -34,7 +40,7 @@ const nextConfig = {
     optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
     serverActions: {
       allowedOrigins: ['goacarrental.in', 'www.goacarrental.in'],
-    },
+    }
   },
 
   // Compiler optimizations
@@ -51,6 +57,14 @@ const nextConfig = {
 
   // Enable React strict mode
   reactStrictMode: true,
+
+  // Optimize preloading
+  onDemandEntries: {
+    // period (in ms) where the server will keep pages in the buffer
+    maxInactiveAge: 10 * 1000,
+    // number of pages that should be kept simultaneously without being disposed
+    pagesBufferLength: 1,
+  },
 
   // Redirects
   async redirects() {
@@ -89,6 +103,15 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable, stale-while-revalidate=31536000',
+          },
+        ],
+      },
+      {
+        source: '/fonts/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

@@ -9,7 +9,7 @@ export default function AboutUs() {
           <span className="text-sm font-medium text-white tracking-wide uppercase">About Us</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-4 leading-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 leading-tight">
           Your Trusted Car Rental Partner in Goa
         </h2>
 

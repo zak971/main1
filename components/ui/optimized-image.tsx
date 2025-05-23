@@ -9,6 +9,8 @@ interface OptimizedImageProps {
   className?: string
   priority?: boolean
   sizes?: string
+  quality?: number
+  loading?: "lazy" | "eager"
 }
 
 export function OptimizedImage({
@@ -17,6 +19,8 @@ export function OptimizedImage({
   className,
   priority = false,
   sizes = "100vw",
+  quality = 75,
+  loading = "lazy",
 }: OptimizedImageProps) {
   return (
     <Image
@@ -26,6 +30,12 @@ export function OptimizedImage({
       fill
       priority={priority}
       sizes={sizes}
+      quality={quality}
+      loading={loading}
+      onError={(e) => {
+        const target = e.target as HTMLImageElement
+        target.src = '/images/placeholder.jpg'
+      }}
     />
   )
 } 

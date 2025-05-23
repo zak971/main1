@@ -49,8 +49,8 @@ export default function CarsPage() {
       {/* Cars Grid Section - Optimized */}
       <section className="relative py-12 sm:py-16 overflow-hidden">
         {/* Background Layers - Optimized */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
-          <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 mix-blend-overlay" />
+        <div className="fixed inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-10 mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         </div>
 
@@ -63,13 +63,13 @@ export default function CarsPage() {
           <div className="flex flex-col items-center mb-12 sm:mb-16 text-center pt-10">
           <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
               <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Our Fleet</span>
-            </div>
+          </div>
             
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 sm:mb-6">
-             Self Drive Car Rental Goa
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-2">
+             Book a Self Drive Car in Goa <br /> Affordable & Reliable
             </h1>
-            <p className="mt-4 max-w-4xl text-base sm:text-lg text-gray-300 leading-relaxed">
-              Looking for a hassle-free self-drive car rental in Goa? Our fleet offers everything from compact hatchbacks to luxury SUVs, perfect for exploring Goa at your own pace. Whether you're arriving at Goa Airport or staying at a beach resort, we provide doorstep delivery and 24/7 support. Book online and enjoy the freedom of driving across Goa's scenic roads with our reliable, sanitized, and affordable rental cars.
+            <p className="mt-1 max-w-4xl text-base sm:text-lg text-gray-300 leading-relaxed px-4">
+             Looking for a self-drive car rental in Goa? Choose from hatchbacks to SUVs with doorstep delivery and 24/7 support. Book now to explore Goa at your own pace with clean, affordable rental cars.
             </p>
 
             
@@ -100,14 +100,7 @@ export default function CarsPage() {
           </div>
 
           {/* Featured Cars Section */}
-          <div className="mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Featured Cars</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {filteredCars.filter(car => car.featured).map((car) => (
-                <CarCard key={car.id} car={car} />
-              ))}
-            </div>
-          </div>
+         
 
           {/* All Cars Section */}
           <div>
@@ -254,15 +247,15 @@ export default function CarsPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
                 <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-orange-400" />
+                  <Shield className="w-6 h-6 text-orange-400"/>
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Fully Insured</h3>
                 <p className="text-gray-400">All our vehicles come with comprehensive insurance coverage for your peace of mind.</p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
                 <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-orange-400" />
                 </div>
@@ -270,7 +263,7 @@ export default function CarsPage() {
                 <p className="text-gray-400">Round-the-clock customer support and roadside assistance whenever you need it.</p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
                 <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
                   <CheckCircle className="w-6 h-6 text-orange-400" />
                 </div>
@@ -278,7 +271,7 @@ export default function CarsPage() {
                 <p className="text-gray-400">Regularly serviced and sanitized vehicles for a safe and comfortable ride.</p>
               </div>
 
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
                 <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
                   <MapPin className="w-6 h-6 text-orange-400" />
                 </div>
@@ -300,7 +293,7 @@ export default function CarsPage() {
 
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-white mb-4">Rental Duration</h3>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Rental Duration</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />
@@ -318,7 +311,7 @@ export default function CarsPage() {
               </div>
 
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-white mb-4">Pricing & Payments</h3>
+                <h3 className="text-lg font-semibold text-white mb-4 text-center">Pricing & Payments</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-orange-400 mt-0.5 mr-3 flex-shrink-0" />

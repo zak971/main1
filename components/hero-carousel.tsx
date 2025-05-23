@@ -13,20 +13,17 @@ export function HeroCarousel() {
         {/* Image */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image
-            src="/images/TRY1.avif?v=1"
-            alt="Premium luxury car rental service in Goa - Experience the best car rental service with Goa Car Rentals"
+            src="/images/TRY1.avif"
+            alt="Car Rental in Goa"
             fill
             priority
             loading="eager"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkLzYvLy02LjY2OjY2Njo2NjY6Ojo6Pz8/P0dHR0dHR0dHR0dHR0f/2wBDARUXFyAeIB4gHh4gIiAdIB0gHR0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICf/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
-            quality={85}
+            sizes="100vw"
+            quality={100}
             className="object-cover w-full h-full opacity-0 transition-opacity duration-500"
             style={{
               objectPosition: 'center bottom',
               objectFit: 'cover',
-              willChange: 'transform',
             }}
             onLoadingComplete={(img) => {
               img.classList.add('opacity-100')
@@ -40,7 +37,7 @@ export function HeroCarousel() {
           className="absolute inset-0 w-full h-full"
           style={{
             background: 'linear-gradient(135deg, rgba(17,24,39,0.2) 0%, rgba(31,41,55,0.1) 50%, rgba(17,24,39,0.25) 100%)',
-            backdropFilter: 'blur(2px)',
+            backdropFilter: 'blur(8px)',
             zIndex: 10,
           }}
         />
@@ -54,12 +51,19 @@ export function HeroCarousel() {
             <span className="bg-gradient-to-r from-white/90 to-white/70 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"> Affordable Self-Drive<br/>Car Rentals</span>
           </h1>
           <div className="animate-fade-in-up w-full overflow-hidden mb-3 sm:mb-5">
-            <h2 className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white leading-tight font-semibold tracking-wide drop-shadow-lg inline-flex items-center flex-wrap gap-2">
-              <span className="px-1 py-0.5 bg-gradient-to-r from-white/20 to-white/5 backdrop-blur-sm rounded-md">Affordable Prices</span>
-              <span className="text-amber-300">•</span>
-              <span className="px-1 py-0.5 bg-gradient-to-r from-white/20 to-white/5 backdrop-blur-sm rounded-md">No Hidden Charges</span>
-              <span className="text-amber-300">•</span>
-              <span className="px-1 py-0.5 bg-gradient-to-r from-white/20 to-white/5 backdrop-blur-sm rounded-md">Doorstep Delivery</span>
+            <h2 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-tight font-semibold tracking-wide drop-shadow-lg flex flex-col items-start gap-3 sm:gap-4">
+              <span className="group flex items-center whitespace-nowrap transition-all duration-300 hover:scale-105">
+                <span className="text-orange-400 mr-2 text-base sm:text-lg md:text-xl">✓</span>
+                Affordable Prices
+              </span>
+              <span className="group flex items-center whitespace-nowrap transition-all duration-300 hover:scale-105">
+                <span className="text-orange-400 mr-2 text-base sm:text-lg md:text-xl">✓</span>
+                No Hidden Charges
+              </span>
+              <span className="group flex items-center whitespace-nowrap transition-all duration-300 hover:scale-105">
+                <span className="text-orange-400 mr-2 text-base sm:text-lg md:text-xl">✓</span>
+                Doorstep Delivery
+              </span>
             </h2>
           </div>
           <div className="animate-fade-in-up">

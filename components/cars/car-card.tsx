@@ -27,7 +27,8 @@ export function CarCard({ car }: CarCardProps) {
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           priority={false}
-          quality={80}
+          quality={75}
+          loading="lazy"
           onError={(e) => {
             const target = e.target as HTMLImageElement
             target.src = getImageUrl('/car-placeholder.jpg')
@@ -45,20 +46,19 @@ export function CarCard({ car }: CarCardProps) {
       </div>
 
       {/* Content Section */}
-      <div className="p-4 sm:p-6">
-        <div className="mb-4">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-gray-800 transition-colors">
-            {car.name}
-          </h3>
-          <div className="flex items-baseline space-x-1 sm:space-x-2">
-            <p className="text-2xl sm:text-3xl font-bold text-gray-900">
-              ₹{car.price}
-            </p>
-            <span className="text-sm sm:text-base font-normal text-gray-600">/day</span>
+      <div className="p-4 sm:p-5">
+        <div className="flex items-start justify-between mb-3">
+          <div>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1">{car.name}</h3>
+            <p className="text-sm text-gray-600">{car.type}</p>
+          </div>
+          <div className="text-right">
+            <p className="text-lg sm:text-xl font-bold text-gray-900">₹{car.price}</p>
+            <p className="text-sm text-gray-600">per day</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-y-3 sm:gap-y-4 gap-x-4 sm:gap-x-6">
+        <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="flex items-center space-x-2 sm:space-x-3 group-hover:translate-x-1 transition-transform duration-300">
             <div className="p-2 sm:p-3 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg sm:rounded-xl group-hover:shadow-md transition-all duration-300 shadow-sm">
               <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />

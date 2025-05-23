@@ -1,14 +1,33 @@
 "use client"
 
-import { useEffect, useState } from 'react'
 import Image from "next/image"
 
 interface PlaceholderImageProps {
+  width?: number
+  height?: number
   className?: string
   alt?: string
 }
 
-export function PlaceholderImage({ className = "", alt = "Placeholder image" }: PlaceholderImageProps) {
+export function PlaceholderImage({ 
+  width, 
+  height, 
+  className = "", 
+  alt = "Placeholder image" 
+}: PlaceholderImageProps) {
+  if (width && height) {
+    return (
+      <Image
+        src="/images/placeholder.jpg"
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        quality={75}
+      />
+    )
+  }
+
   return (
     <div className={`relative ${className}`}>
       <Image

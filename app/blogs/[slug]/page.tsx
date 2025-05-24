@@ -75,58 +75,8 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
     <>
       <BlogSchema blog={blog} />
       <div className="min-h-screen">
-        {/* Hero Section */}
-        <div className="relative h-[50vh] sm:h-[60vh] lg:h-[70vh] w-full">
-          <Image
-            src={blog.coverImage}
-            alt={blog.title}
-            fill
-            className="object-cover"
-            priority={true}
-            quality={85}
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-          
-          {/* Back Button */}
-          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-            <Button 
-              asChild
-              className="bg-black/30 backdrop-blur-sm border-white/10 text-gray-200 hover:bg-black/50 hover:text-orange-400 transition-all"
-            >
-              <Link href="/blogs" className="flex items-center gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                <span>Back to Blogs</span>
-              </Link>
-            </Button>
-          </div>
-          
-          {/* Blog Title */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center text-white space-y-4 px-4 max-w-3xl mx-auto">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-                {blog.title}
-              </h1>
-              
-              <div className="flex items-center justify-center space-x-6 text-sm text-gray-300">
-                <div className="flex items-center gap-1.5">
-                  <CalendarDays className="h-4 w-4 text-orange-400" />
-                  <span>{formatDate(blog.publishedAt)}</span>
-                </div>
-                
-                <div className="flex items-center gap-1.5">
-                  <Clock className="h-4 w-4 text-orange-400" />
-                  <span>{blog.readTime}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Blog Content */}
-        <section className="relative py-12 sm:py-16 overflow-hidden">
+        <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden">
           {/* Background Layers */}
           <div className="fixed inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-10 mix-blend-overlay" />
@@ -138,6 +88,9 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
               {/* Main Content */}
               <div className="lg:col-span-2">
                 <div className="p-6 sm:p-8 md:p-10">
+                  
+                  
+
                   <BlogContent content={blog.content} />
                   
                   <div className="mt-16 pt-8 border-t border-white/10">

@@ -13,9 +13,14 @@ interface LuxuryCarCardProps {
 }
 
 export function LuxuryCarCard({ car }: LuxuryCarCardProps) {
+  // Calculate average rating
+  const averageRating = car?.reviews?.length 
+    ? Math.round(car.reviews.reduce((acc, review) => acc + review.rating, 0) / car.reviews.length)
+    : 0
+
   return (
     <Link 
-      href={`/luxury-cars/${car.id}`}
+      href={`/luxury-cars/${car.slug}`}
       className="group relative bg-gray/100 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-2 hover:border-white/20 active:scale-[0.98] transform-gpu"
     >
       {/* Image Container */}
@@ -35,8 +40,6 @@ export function LuxuryCarCard({ car }: LuxuryCarCardProps) {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        
       </div>
 
       {/* Content Section */}
@@ -47,8 +50,18 @@ export function LuxuryCarCard({ car }: LuxuryCarCardProps) {
             <p className="text-sm text-gray-400">{car.type}</p>
           </div>
           <div className="text-right">
-            <p className="text-lg sm:text-xl font-bold text-orange-400">₹{car.price}</p>
-            <p className="text-sm text-gray-400">per day</p>
+            <div className="flex items-center justify-end space-x-2">
+              <div>
+                <p className="text-lg sm:text-xl font-bold text-orange-400">₹{car.price}</p>
+                <p className="text-sm text-gray-400">per day</p>
+              </div>
+              {car.reviews && car.reviews.length > 0 && (
+                <Badge className="bg-orange-500/20 text-orange-400 px-2 py-0.5 text-xs sm:text-sm font-medium shadow-sm border border-orange-500/20">
+                  <Star className="w-3 h-3 mr-1 inline-block" />
+                  {averageRating}/5
+                </Badge>
+              )}
+            </div>
           </div>
         </div>
 

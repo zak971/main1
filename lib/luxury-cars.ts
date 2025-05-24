@@ -1,10 +1,12 @@
 import type { CarType, Review } from "@/types/car"
+import { generateSlug } from "@/lib/utils"
 
 // Luxury cars data
 export const luxuryCars: CarType[] = [
   {
     id: "luxury-1",
     name: "Mercedes-Benz S-Class",
+    slug: generateSlug("Mercedes-Benz S-Class"),
     type: "Luxury Sedan",
     carType: "Luxury Sedan",
     price: 15000,
@@ -53,4 +55,9 @@ export async function getLuxuryCars(): Promise<CarType[]> {
 // Function to get a specific luxury car by ID
 export async function getLuxuryCarById(id: string): Promise<CarType | undefined> {
   return luxuryCars.find(car => car.id === id)
+}
+
+// Function to get a specific luxury car by slug
+export async function getLuxuryCarBySlug(slug: string): Promise<CarType | undefined> {
+  return luxuryCars.find(car => car.slug === slug)
 } 

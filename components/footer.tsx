@@ -75,7 +75,7 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/cars"
+                      href="/self-drive-cars"
                       className="text-neutral-300 hover:text-white transition-colors"
                     >
                       Our Cars

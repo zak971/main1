@@ -1,22 +1,28 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { getLuxuryCarById } from "@/lib/luxury-cars"
+import { getLuxuryCarBySlug } from "@/lib/luxury-cars"
 import type { CarType } from "@/types/car"
 import Image from "next/image"
-import { Star, Shield, Clock, CheckCircle, MapPin, ArrowLeft, Users, Settings, Fuel, Car } from "lucide-react"
+import { Star, Shield, Clock, CheckCircle, MapPin, ArrowLeft, Users, Settings, Fuel, Car, Phone, PhoneIcon as WhatsApp } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { CarReviews } from "@/components/cars/car-reviews"
 
-export default function LuxuryCarDetailsPage({ params }: { params: { id: string } }) {
+export default function LuxuryCarDetailPage({ params }: { params: { slug: string } }) {
   const [car, setCar] = useState<CarType | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState("")
 
+  // Calculate average rating
+  const averageRating = car?.reviews?.length 
+    ? Math.round(car.reviews.reduce((acc, review) => acc + review.rating, 0) / car.reviews.length)
+    : 0
+
   useEffect(() => {
     const fetchCar = async () => {
       try {
-        const carData = await getLuxuryCarById(params.id)
+        const carData = await getLuxuryCarBySlug(params.slug)
         if (carData) {
           setCar(carData)
           setSelectedImage(carData.images?.[0] || carData.image || "")
@@ -29,7 +35,7 @@ export default function LuxuryCarDetailsPage({ params }: { params: { id: string 
     }
 
     fetchCar()
-  }, [params.id])
+  }, [params.slug])
 
   if (isLoading) {
     return (
@@ -55,17 +61,8 @@ export default function LuxuryCarDetailsPage({ params }: { params: { id: string 
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
-      <div className="container mx-auto px-4 py-6 pt-20 sm:pt-24">
-        {/* Breadcrumb */}
-        <div className="mb-4 flex justify-start">
-          <Link 
-            href="/luxury-cars" 
-            className="group flex items-center gap-2 text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 px-4 py-2 rounded-lg transition-all duration-300"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span>Back to Luxury Cars</span>
-          </Link>
-        </div>
+      <div className="container relative mx-auto px-4 py-6 pt-20 sm:pt-24">
+        
 
         {/* Car Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -114,7 +111,7 @@ export default function LuxuryCarDetailsPage({ params }: { params: { id: string 
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 text-orange-400 fill-current"
+                    className={`w-5 h-5 ${i < averageRating ? "text-orange-400 fill-current" : "text-gray-600"}`}
                   />
                 ))}
               </div>
@@ -183,93 +180,49 @@ export default function LuxuryCarDetailsPage({ params }: { params: { id: string 
               </div>
             </div>
 
-            <div>
-              <h2 className="text-xl font-semibold text-white mb-4">Reviews</h2>
-              <div className="space-y-4">
-                {car.reviews?.map((review) => (
-                  <div key={review.id} className="bg-white/5 p-4 rounded-lg">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        <div className="flex">
-                          {[...Array(review.rating)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className="w-4 h-4 text-orange-400 fill-current"
-                            />
-                          ))}
+            {/* Reviews Section */}
+            {car.reviews && car.reviews.length > 0 && (
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-6">
+                <h2 className="text-xl font-semibold text-white mb-6">Customer Reviews</h2>
+                <div className="space-y-6">
+                  {car.reviews.map((review) => (
+                    <div key={review.id} className="border-b border-white/10 last:border-0 pb-6 last:pb-0">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center space-x-2">
+                          <div className="flex">
+                            {[...Array(5)].map((_, i) => (
+                              <Star
+                                key={i}
+                                className={`w-4 h-4 ${
+                                  i < review.rating
+                                    ? "text-orange-400 fill-current"
+                                    : "text-gray-600"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                          <span className="font-medium text-white">{review.userName}</span>
                         </div>
-                        <span className="text-white font-medium">{review.userName}</span>
+                        <span className="text-sm text-gray-400">{review.date}</span>
                       </div>
-                      <span className="text-gray-400 text-sm">{review.date}</span>
+                      <p className="text-gray-300">{review.comment}</p>
                     </div>
-                    <p className="text-gray-300">{review.comment}</p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="pt-6">
-              <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-lg font-semibold transition-colors">
-                Book Now
-              </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white">
+                <Phone className="w-4 h-4 mr-2" />
+                Contact for Booking
+              </Button>
+              <Button className="flex-1 bg-orange-500/20 hover:bg-orange-500/30 text-orange-400 border border-orange-500/20">
+                <WhatsApp className="w-4 h-4 mr-2" />
+                WhatsApp
+              </Button>
             </div>
           </div>
-        </div>
-
-        {/* Premium Service Features */}
-        <section className="mt-20">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
-              <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Premium Service</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Luxury Car Rental Features</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">Experience premium service with our luxury car rentals</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-orange-400"/>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Premium Insurance</h3>
-              <p className="text-gray-400">Comprehensive coverage for our luxury vehicles</p>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-orange-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">24/7 Concierge</h3>
-              <p className="text-gray-400">Dedicated luxury car support team</p>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle className="w-6 h-6 text-orange-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Premium Fleet</h3>
-              <p className="text-gray-400">Regularly maintained luxury vehicles</p>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-orange-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Premium Delivery</h3>
-              <p className="text-gray-400">Luxury car delivery service</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Support */}
-        <div className="text-center mt-12">
-          <p className="text-gray-400 mb-4">Need assistance with your luxury car rental?</p>
-          <a 
-            href="tel:+919307055218" 
-            className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
-          >
-            Contact Luxury Support
-          </a>
         </div>
       </div>
     </div>

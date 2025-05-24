@@ -96,7 +96,7 @@ export default function Home() {
                 size="lg"
                 className="bg-white hover:bg-gray-100 text-gray-900 font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 px-8 py-3 rounded-xl"
               >
-                <Link href="/cars" className="flex items-center space-x-2">
+                <Link href="/self-drive-cars" className="flex items-center space-x-2">
                   <Car className="w-4 h-4" />
                   <span>View All Cars</span>
                 </Link>
@@ -210,7 +210,7 @@ export default function Home() {
                 size="lg"
                 className="bg-white hover:bg-gray-100 text-gray-900 font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 px-8 py-3 rounded-xl"
               >
-                <Link href="/cars" className="flex items-center space-x-2">
+                <Link href="/self-drive-cars" className="flex items-center space-x-2">
                   <Car className="w-4 h-4" />
                   <span>View Fleet</span>
                 </Link>
@@ -388,7 +388,7 @@ export default function Home() {
                 size="lg"
                 className="group bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-500 text-gray-900 font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.5)] shadow-xl active:scale-95 px-8 py-6 rounded-xl border-2 border-amber-300/30 text-lg"
               >
-                <Link href="/cars" className="flex items-center space-x-3">
+                <Link href="/self-drive-cars" className="flex items-center space-x-3">
                   <Car className="w-5 h-5 transition-transform group-hover:scale-110" />
                   <span>Book Your Car Now</span>
                   <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

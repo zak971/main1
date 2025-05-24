@@ -109,7 +109,7 @@ export function FeaturedCars() {
           className="h-full"
         >
           <Link 
-            href={`/cars/${car.id}`}
+            href={`/self-drive-cars/${car.slug}`}
             className="group relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-2 hover:border-gray-300 active:scale-[0.98] transform-gpu"
           >
             {/* Image Container */}
@@ -129,13 +129,13 @@ export function FeaturedCars() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
-              {/* Featured Badge */}
-              {car.featured && (
+              {/* Featured Badge - Hidden */}
+              {/* {car.featured && (
                 <Badge className="absolute top-3 right-3 bg-gradient-to-r from-gray-700 to-gray-800 text-gray-100 px-2 py-0.5 text-xs sm:text-sm font-medium backdrop-blur-sm border border-gray-600/30 shadow-lg transform group-hover:scale-105 transition-transform duration-300">
                   <Star className="w-3 h-3 mr-1 inline-block" />
                   Featured
                 </Badge>
-              )}
+              )} */}
             </div>
 
             {/* Content Section */}

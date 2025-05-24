@@ -7,7 +7,7 @@ import Image from "next/image"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import type { CarType } from "@/types/car"
-import { Shield, Clock, CheckCircle, MapPin } from "lucide-react"
+import { Shield, Clock, CheckCircle, MapPin, Truck } from "lucide-react"
 
 export default function LuxuryCarsPage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -63,10 +63,10 @@ export default function LuxuryCarsPage() {
             </div>
             
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-2">
-              Premium Luxury Cars in Goa <br /> Experience Excellence
+              Premium Luxury Cars in Goa <br /> Experience Unmatched Elegance
             </h1>
             <p className="mt-1 max-w-4xl text-base sm:text-lg text-gray-300 leading-relaxed px-4">
-              Indulge in the ultimate luxury car rental experience in Goa. Choose from our premium collection of high-end vehicles, featuring top brands and exceptional service.
+            Indulge in the ultimate luxury car rental experience in Goa. Choose from our exclusive fleet of high-end vehicles featuring top brands, plush interiors, and first-class service — perfect for weddings, business trips, or luxury travel.
             </p>
 
             {/* Search Filter */}
@@ -120,51 +120,6 @@ export default function LuxuryCarsPage() {
               </div>
             )}
           </div>
-
-          {/* Premium Service Features */}
-          <section className="mt-20">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
-                <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Premium Service</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Luxury Car Rental Features</h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">Experience premium service with our luxury car rentals</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-orange-400"/>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Premium Insurance</h3>
-                <p className="text-gray-400">Comprehensive coverage for our luxury vehicles</p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-orange-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">24/7 Concierge</h3>
-                <p className="text-gray-400">Dedicated luxury car support team</p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-orange-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Premium Fleet</h3>
-                <p className="text-gray-400">Regularly maintained luxury vehicles</p>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6 text-orange-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Premium Delivery</h3>
-                <p className="text-gray-400">Luxury car delivery service</p>
-              </div>
-            </div>
-          </section>
 
           {/* Contact Support */}
           <div className="text-center mt-12">

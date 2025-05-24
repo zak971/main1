@@ -22,14 +22,15 @@ export default function AboutUs() {
       <div className="max-w-4xl mx-auto">
         <div className="space-y-6 text-lg leading-relaxed text-gray-300 text-center">
           <p>
-            At <span className="font-semibold text-white"><a href="https://www.goacarrental.in/">Goa Car Rental</a> </span>, we are committed to offering a seamless and dependable car rental experience for travelers and locals alike. 
-            Whether you're exploring scenic beaches, vibrant markets, or hidden gems across Goa, our wide range of well-maintained rental cars ensures you do it in comfort and style.
+          At <a href="/" target="_blank" rel="noopener noreferrer"><strong>Goa Car Rental</strong> </a>, we specialize in providing dependable, affordable, and convenient <a href="/self-drive-cars" target="_blank" rel="noopener noreferrer"><strong>self-drive</strong> </a>
+          and <a href="luxary-cars" target="_blank" rel="noopener noreferrer"><strong>Luxary car rental</strong> </a>services across Goa. Whether you're visiting Goa’s stunning beaches, vibrant markets, or offbeat destinations, 
+          our fleet of well-maintained vehicles — from fuel-efficient hatchbacks to premium SUVs — ensures you travel in comfort and style.
           </p>
           
           <p>
-            With a strong focus on customer satisfaction, transparent pricing, and 24/7 support, 
-            we’ve earned the trust of thousands of happy customers. Whether it’s a quick weekend getaway or an extended stay,
-            <a href="https://www.goacarrental.in/">Goa Car Rental</a> is your go-to choice for hassle-free car hire in Goa. 
+             Enjoy <strong>transparent pricing</strong>, <strong>easy online booking</strong>, <strong>doorstep delivery</strong>, and <strong>24/7 support</strong> 
+              for a completely hassle-free rental experience. Trusted by locals and tourists alike, Goa Car Rental is the preferred choice for 
+            <strong>car hire in Goa</strong> — whether it’s a quick weekend escape or an extended stay.
           </p>
           
         </div>

@@ -40,8 +40,7 @@ export function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/cars", label: "Our Cars" },
-    
+    { href: "/self-drive-cars", label: "Our Fleet" },
     { href: "/blogs", label: "Blogs" },
     { href: "/#about", label: "About Us" },
     { href: "/#contact", label: "Contact" },
@@ -60,10 +59,10 @@ export function Navbar() {
         
         <div className="container mx-auto relative">
           <div className="flex items-center justify-between h-16 sm:h-20 px-2 sm:px-6 pt-2">
-            {/* Logo - Only show on desktop */}
+            
             <Link 
               href="/" 
-              className="hidden md:flex items-center transition-all duration-300 hover:scale-105"
+              className="hidden md:flex items-center transition-all duration-300 hover:scale-105 pr-8"
             >
               <Image
                 src="/images/rename.png"
@@ -78,15 +77,15 @@ export function Navbar() {
             {/* Mobile Header - Logo and Menu Button */}
             <div className="flex md:hidden items-center justify-between w-full">
               <Link 
-                href="https://www.goacarrental.in" 
+                href="/" 
                 className="flex items-center pt-1 -ml-2"
               >
                 <Image
                   src="/images/rename.png"
                   alt="Goa Car Rentals Logo"
-                  width={240}
-                  height={240}
-                  className="h-16 w-auto"
+                  width={300}
+                  height={300}
+                  className="h-20 w-auto"
                   priority
                 />
               </Link>
@@ -173,13 +172,13 @@ export function Navbar() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center justify-center flex-1 mx-4">
-              <div className="flex items-center justify-center pl-16">
+            <nav className="hidden md:flex items-center justify-center flex-1">
+              <div className="flex items-center justify-center space-x-3 ml-12">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="group px-4 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:text-orange-500 relative"
+                    className="group px-2 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:text-orange-500 relative"
                   >
                     {link.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full" />

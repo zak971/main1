@@ -436,6 +436,9 @@ const carsData: CarType[] = [
   ]
 },
 
+
+
+
 ]
 
 // In a real application, these functions would interact with a database

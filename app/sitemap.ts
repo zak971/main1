@@ -3,55 +3,66 @@ import { getCars } from '@/lib/cars'
 import { getBlogs } from '@/lib/blogs'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.goacarrental.in'
+  const baseUrl = 'https://goacarrental.in'
   
-  // Get all cars and blogs for dynamic routes
+  // Get all cars
   const cars = await getCars()
+  const carUrls = cars.map((car) => ({
+    url: `${baseUrl}/self-drive-cars/${car.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
+
+  // Get all blogs
   const blogs = await getBlogs()
-  
-  // Static routes
+  const blogUrls = blogs.map((blog) => ({
+    url: `${baseUrl}/blogs/${blog.slug}`,
+    lastModified: new Date(blog.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // Static routes with improved priorities and change frequencies
   const staticRoutes = [
+    // Main pages
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
-      priority: 1,
+      priority: 1.0,
     },
     {
-      url: `${baseUrl}/cars`,
+      url: `${baseUrl}/self-drive-cars`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
-      priority: 0.8,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/airport-transfer`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/chauffeur-service`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/luxury-cars`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/blogs`,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
-    },
+    }
   ]
-  
-  // Dynamic routes for cars
-  const carRoutes = cars.map((car) => ({
-    url: `${baseUrl}/cars/${car.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }))
-  
-  // Dynamic routes for blogs with enhanced metadata
-  const blogRoutes = blogs.map((blog) => ({
-    url: `${baseUrl}/blogs/${blog.slug}`,
-    lastModified: new Date(blog.publishedAt),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-    images: [{
-      url: `${baseUrl}${blog.coverImage}`,
-      title: blog.title,
-      caption: blog.excerpt
-    }]
-  }))
-  
-  // Combine all routes
-  return [...staticRoutes, ...carRoutes, ...blogRoutes]
+
+  return [...staticRoutes, ...carUrls, ...blogUrls]
 } 

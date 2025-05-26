@@ -1,40 +1,124 @@
 "use client"
 
+import { motion } from "framer-motion"
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      when: "beforeChildren",
+      staggerChildren: 0.3
+    }
+  }
+}
+
+const titleVariants = {
+  hidden: { 
+    opacity: 0,
+    y: 30
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+      duration: 0.8
+    }
+  }
+}
+
+const textVariants = {
+  hidden: { 
+    opacity: 0,
+    x: -50
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 50,
+      damping: 20,
+      duration: 0.8
+    }
+  }
+}
+
+const highlightVariants = {
+  hidden: { 
+    opacity: 0,
+    scale: 0.8
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 200,
+      damping: 10
+    }
+  }
+}
+
 export default function AboutUs() {
   return (
-    <div className="container relative px-4 sm:px-6 mx-auto">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      className="container relative px-4 sm:px-6 mx-auto"
+    >
       {/* Section Header */}
-      <div className="flex flex-col items-center mb-16 text-center px-4">
-        <div className="inline-flex items-center justify-center px-5 py-2 mb-4 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
-          <span className="text-sm font-medium text-white tracking-wide uppercase">About Us</span>
-        </div>
-
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 leading-tight">
+      <motion.div 
+        variants={titleVariants}
+        className="flex flex-col items-center mb-12 text-center px-4"
+      >
+        <motion.h2 
+          variants={titleVariants}
+          className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-4 leading-tight"
+        >
           Your Trusted Car Rental Partner in Goa
-        </h2>
+        </motion.h2>
 
-        <p className="max-w-1xl text-base sm:text-lg md:text-xl text-gray-400 font-normal leading-relaxed">
+        <motion.p 
+          variants={textVariants}
+          className="max-w-1xl text-base sm:text-lg md:text-xl text-gray-400 font-normal leading-relaxed"
+        >
         5+ Years of Experience | 50+ Vehicles | 1200+ Happy Customers Across Goa
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* About Content */}
-      <div className="max-w-4xl mx-auto">
+      <motion.div 
+        variants={containerVariants}
+        className="max-w-4xl mx-auto"
+      >
         <div className="space-y-6 text-lg leading-relaxed text-gray-300 text-center">
-          <p>
-          At <a href="/" target="_blank" rel="noopener noreferrer"><strong>Goa Car Rental</strong> </a>, we specialize in providing dependable, affordable, and convenient <a href="/self-drive-cars" target="_blank" rel="noopener noreferrer"><strong>self-drive</strong> </a>
-          and <a href="luxary-cars" target="_blank" rel="noopener noreferrer"><strong>Luxary car rental</strong> </a>services across Goa. Whether you're visiting Goa’s stunning beaches, vibrant markets, or offbeat destinations, 
+          <motion.p
+            variants={textVariants}
+            className="relative"
+          >
+            At <motion.span variants={highlightVariants} className="inline-block"><a href="/" target="_blank" rel="noopener noreferrer"><strong>Goa Car Rental</strong></a></motion.span>, we specialize in providing dependable, affordable, and convenient <motion.span variants={highlightVariants} className="inline-block"><a href="/self-drive-cars" target="_blank" rel="noopener noreferrer"><strong>self-drive</strong></a></motion.span>
+            and <motion.span variants={highlightVariants} className="inline-block"><a href="luxary-cars" target="_blank" rel="noopener noreferrer"><strong>Luxary car rental</strong></a></motion.span> services across Goa. Whether you're visiting Goa's stunning beaches, vibrant markets, or offbeat destinations, 
           our fleet of well-maintained vehicles — from fuel-efficient hatchbacks to premium SUVs — ensures you travel in comfort and style.
-          </p>
+          </motion.p>
           
-          <p>
-             Enjoy <strong>transparent pricing</strong>, <strong>easy online booking</strong>, <strong>doorstep delivery</strong>, and <strong>24/7 support</strong> 
+          <motion.p
+            variants={textVariants}
+            className="relative"
+          >
+            Enjoy <motion.span variants={highlightVariants} className="inline-block"><strong>transparent pricing</strong></motion.span>, <motion.span variants={highlightVariants} className="inline-block"><strong>easy online booking</strong></motion.span>, <motion.span variants={highlightVariants} className="inline-block"><strong>doorstep delivery</strong></motion.span>, and <motion.span variants={highlightVariants} className="inline-block"><strong>24/7 support</strong></motion.span> 
               for a completely hassle-free rental experience. Trusted by locals and tourists alike, Goa Car Rental is the preferred choice for 
-            <strong>car hire in Goa</strong> — whether it’s a quick weekend escape or an extended stay.
-          </p>
-          
+            <motion.span variants={highlightVariants} className="inline-block"><strong>car hire in Goa</strong></motion.span> — whether it's a quick weekend escape or an extended stay.
+          </motion.p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 } 

@@ -14,34 +14,28 @@ import { motion, AnimatePresence } from "framer-motion"
 
 // Animation variants
 const containerVariants = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
+      staggerChildren: 0.2,
+      delayChildren: 0.3
     }
   }
 }
 
 const cardVariants = {
   hidden: { 
-    opacity: 1,
-    y: 0,
-    scale: 1
+    opacity: 0,
+    y: 20
   },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1
-  },
-  hover: {
-    y: -10,
-    scale: 1.02,
     transition: {
       type: "spring",
-      stiffness: 400,
-      damping: 10
+      stiffness: 100,
+      damping: 15
     }
   }
 }
@@ -98,14 +92,17 @@ export function FeaturedCars() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+    >
       {cars.map((car) => (
         <motion.div
           key={car.id} 
           variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
           className="h-full"
         >
           <Link 
@@ -194,6 +191,6 @@ export function FeaturedCars() {
         </Link>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   )
 }

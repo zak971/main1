@@ -38,6 +38,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: {
       canonical: `https://www.goacarrental.in/blogs/${resolvedParams.slug}`,
     },
+    icons: {
+      icon: '/tablogo.png',
+      shortcut: '/tablogo.png',
+      apple: '/tablogo.png',
+    },
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
@@ -75,8 +80,8 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
     <>
       <BlogSchema blog={blog} />
       <div className="min-h-screen">
-        {/* Blog Content */}
-        <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 overflow-hidden">
+        {/* Main Content */}
+        <section className="relative py-12 sm:py-16">
           {/* Background Layers */}
           <div className="fixed inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-10 mix-blend-overlay" />
@@ -84,14 +89,59 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
           </div>
 
           <div className="container relative px-4 sm:px-6 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Hero Section */}
+            <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+              {/* Blog Header with Background Image */}
+              <div className="relative w-full h-[40vh] sm:h-[45vh] md:h-[50vh] overflow-hidden border-y border-white/10 shadow-2xl">
+                <div className="absolute inset-0">
+                  <Image
+                    src={blog.coverImage}
+                    alt={blog.title}
+                    fill
+                    priority
+                    quality={90}
+                    sizes="100vw"
+                    style={{ 
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      width: '100%',
+                      height: '100%'
+                    }}
+                    className="transform hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
+                
+                {/* Title and Metadata */}
+                <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 md:p-8">
+                  <div className="w-full max-w-3xl mx-auto text-center">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
+                      {blog.title}
+                    </h1>
+                    <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-sm sm:text-base text-gray-200">
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <CalendarDays className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                        <span>{formatDate(blog.publishedAt)}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                        <span>{blog.readTime} min read</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content and Sidebar Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8 sm:mt-12">
               {/* Main Content */}
               <div className="lg:col-span-2">
-                <div className="p-6 sm:p-8 md:p-10">
-                  
-                  
-
-                  <BlogContent content={blog.content} />
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl border border-white/5 p-6 sm:p-8 md:p-10">
+                  <div className="prose prose-invert prose-lg max-w-none">
+                    <BlogContent content={blog.content} />
+                  </div>
                   
                   <div className="mt-16 pt-8 border-t border-white/10">
                     <Button 

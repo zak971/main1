@@ -3,10 +3,16 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Phone, PhoneIcon as WhatsApp, ChevronRight } from "lucide-react"
+import { Menu, X, Phone, PhoneIcon as WhatsApp, ChevronRight, ChevronDown } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,12 +29,8 @@ export function Navbar() {
       // Update scroll position
       setLastScrollY(currentScrollY)
       
-      // Update navbar visibility
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false)
-      } else {
+      // Keep navbar always visible
         setIsVisible(true)
-      }
       
       // Update scrolled state for background effect
       setIsScrolled(currentScrollY > 20)
@@ -41,21 +43,25 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/self-drive-cars", label: "Our Fleet" },
-    { href: "/blogs", label: "Blogs" },
-    { href: "/#about", label: "About Us" },
-    { href: "/#contact", label: "Contact" },
     { href: "/luxury-cars", label: "Luxury Cars" },
+    { href: "/blogs", label: "Blogs" },
+  ]
+
+  const serviceLinks = [
+    { href: "/self-drive-cars", label: "Self Drive Cars" },
+    { href: "/airport-transfer", label: "Airport Transfers" },
+    { href: "/chauffeur-service", label: "Chauffeur Service" },
   ]
 
   return (
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${isScrolled ? 'backdrop-blur-lg bg-black/80' : 'bg-transparent'}`}
+      } backdrop-blur-md bg-black/50`}
     >
       <div className="relative">
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-neutral-900/90 to-neutral-800/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-neutral-900/50 to-neutral-800/50" />
         
         <div className="container mx-auto relative">
           <div className="flex items-center justify-between h-16 sm:h-20 px-2 sm:px-6 pt-2">
@@ -141,6 +147,28 @@ export function Navbar() {
                             </Link>
                           </li>
                         ))}
+                        <li>
+                          <div className="py-3 px-4 text-sm sm:text-base font-medium text-gray-200">
+                            <span className="flex items-center justify-between">
+                              Services
+                              <ChevronRight className="w-4 h-4" />
+                            </span>
+                            <ul className="mt-2 space-y-1 pl-4">
+                              {serviceLinks.map((link) => (
+                                <li key={link.href}>
+                                  <Link
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="group flex items-center justify-between py-2 px-4 text-sm text-gray-300 hover:text-orange-500 hover:bg-neutral-800/50 rounded-lg transition-all duration-200"
+                                  >
+                                    <span>{link.label}</span>
+                                    <ChevronRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </li>
                       </ul>
                     </nav>
                     
@@ -184,6 +212,25 @@ export function Navbar() {
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full" />
                   </Link>
                 ))}
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="group px-2 py-2 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:text-orange-500 relative flex items-center space-x-1">
+                    <span>Services</span>
+                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56 bg-black/90 backdrop-blur-md border border-neutral-800">
+                    {serviceLinks.map((link) => (
+                      <DropdownMenuItem key={link.href} asChild>
+                        <Link
+                          href={link.href}
+                          className="text-white hover:text-orange-500 hover:bg-neutral-800/50 cursor-pointer"
+                        >
+                          {link.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </nav>
 

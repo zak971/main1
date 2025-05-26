@@ -23,7 +23,7 @@ export function Footer() {
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/rename.png"
                   alt="Goa Car Rentals - Premium Car Rental Service in Goa"
                   width={40}
                   height={40}

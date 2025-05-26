@@ -48,14 +48,11 @@ export function FAQSection() {
       <div className="w-full py-1">
         <div className="container px-4 sm:px-6 mx-auto">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
-                <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Common Questions</span>
-              </div>
+            <div className="text-center mb-8">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
                 Frequently Asked Questions
               </h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
                 Find answers to common questions about our car rental services in Goa
               </p>
             </div>
@@ -68,10 +65,10 @@ export function FAQSection() {
                 >
                   <button
                     onClick={() => toggleCategory(category.category)}
-                    className="w-full px-6 py-4 text-left focus:outline-none"
+                    className="w-full px-4 py-3 text-left focus:outline-none"
                   >
                     <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-semibold text-white">
+                      <h3 className="text-lg font-semibold text-white">
                         {category.category}
                       </h3>
                       <span className="text-orange-400 text-xl">+</span>
@@ -85,7 +82,7 @@ export function FAQSection() {
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="px-6 py-3 space-y-3">
+                    <div className="px-4 py-2 space-y-2">
                       {category.questions.map((faq, questionIndex) => (
                         <div
                           key={questionIndex}
@@ -93,10 +90,10 @@ export function FAQSection() {
                         >
                           <button
                             onClick={() => toggleQuestion(questionIndex)}
-                            className="w-full px-4 py-3 text-left focus:outline-none"
+                            className="w-full px-4 py-2 text-left focus:outline-none"
                           >
                             <div className="flex items-center justify-between">
-                              <span className="text-lg font-medium text-white">
+                              <span className="text-base font-medium text-white">
                                 {faq.question}
                               </span>
                               <span className="text-orange-400 text-xl">+</span>
@@ -106,11 +103,11 @@ export function FAQSection() {
                           <div
                             className={`px-4 transition-all duration-200 ease-in-out ${
                               openQuestion === questionIndex
-                                ? "max-h-96 opacity-100 py-3"
+                                ? "max-h-96 opacity-100 py-2"
                                 : "max-h-0 opacity-0"
                             }`}
                           >
-                            <p className="text-gray-300 leading-relaxed">
+                            <p className="text-gray-300 text-sm leading-relaxed">
                               {faq.answer}
                             </p>
                           </div>
@@ -123,13 +120,13 @@ export function FAQSection() {
             </div>
 
             {/* Contact Support */}
-            <div className="mt-12 text-center">
-              <p className="text-gray-400 mb-4">Still have questions?</p>
+            <div className="mt-8 text-center">
+              <p className="text-gray-400 mb-3">Still have questions?</p>
               <a
                 href="tel:+919307055218"
-                className="inline-flex items-center justify-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
+                className="inline-flex items-center justify-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-4 h-4 mr-2" />
                 Call Us: +91 9307055218
               </a>
             </div>

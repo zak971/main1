@@ -147,13 +147,10 @@ export default function TestimonialSlider() {
   }, [handleNext]);
 
   return (
-    <div className="max-w-6xl mx-auto pb-0">
-      {/* Mobile Navigation Dots - visible only on small screens */}
-      
-      
+    <div className="max-w-6xl mx-auto">
       {/* Testimonial Slider - optimized for mobile */}
-      <div className="relative overflow-hidden px-1 sm:px-2 md:px-8 mb-0">
-        <div className="relative h-[340px] sm:h-[320px] md:h-[300px]">
+      <div className="relative overflow-hidden px-1 sm:px-2 md:px-8">
+        <div className="relative h-[300px] sm:h-[280px] md:h-[260px]">
           {/* Center track - provides reference positioning */}
           <div className="absolute top-0 left-0 right-0 h-full flex items-center justify-center">
             {/* Testimonial Cards */}
@@ -222,25 +219,25 @@ export default function TestimonialSlider() {
               };
               
               return (
-              <div
-                key={testimonial.id}
-                  className="absolute top-0 left-0 right-0 mx-auto w-full max-w-[280px] sm:max-w-sm transform-gpu transition-all duration-700 ease-out"
+                <div
+                  key={testimonial.id}
+                  className="absolute top-0 left-0 right-0 mx-auto w-full max-w-[260px] sm:max-w-sm transform-gpu transition-all duration-700 ease-out"
                   style={cardStyle}
                 >
-                  <div className="group relative bg-gradient-to-br from-black/95 via-neutral-900/95 to-neutral-800/95 backdrop-blur-lg rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-700/80 transition-all duration-300 hover:border-neutral-600/90 hover:shadow-xl p-4 h-full">
+                  <div className="group relative bg-gradient-to-br from-black/95 via-neutral-900/95 to-neutral-800/95 backdrop-blur-lg rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-700/80 transition-all duration-300 hover:border-neutral-600/90 hover:shadow-xl p-3">
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-300/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
                     <div className="relative z-10 h-full flex flex-col items-center text-center justify-center">
                       {/* Quote icon */}
-                      <div className="absolute top-1 right-1 text-3xl text-neutral-700/50 font-serif">"</div>
+                      <div className="absolute top-1 right-1 text-2xl text-neutral-700/50 font-serif">"</div>
                       
                       {/* Testimonial text */}
-                      <p className="text-neutral-100 text-sm sm:text-base mb-4 relative z-10 flex-grow font-medium">
+                      <p className="text-neutral-100 text-sm sm:text-base mb-2 relative z-10 flex-grow font-medium">
                         "{testimonial.text}"
                       </p>
                       
                       {/* Rating */}
-                      <div className="flex mb-3 justify-center">
+                      <div className="flex mb-2 justify-center">
                         {[...Array(5)].map((_, i) => (
                           <Star 
                             key={i} 
@@ -250,14 +247,14 @@ export default function TestimonialSlider() {
                       </div>
                       
                       {/* Profile */}
-                      <div className="flex items-center space-x-3">
-                        <div className="relative w-10 h-10 rounded-full overflow-hidden bg-neutral-800">
+                      <div className="flex items-center space-x-2">
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden bg-neutral-800">
                           {testimonial.image ? (
                             <Image
                               src={testimonial.image}
                               alt={testimonial.name}
                               fill
-                              sizes="(max-width: 768px) 40px, 40px"
+                              sizes="(max-width: 768px) 32px, 32px"
                               className="object-cover"
                               loading="lazy"
                               quality={75}
@@ -268,8 +265,8 @@ export default function TestimonialSlider() {
                             />
                           ) : (
                             <PlaceholderImage
-                              width={40}
-                              height={40}
+                              width={32}
+                              height={32}
                               alt={`${testimonial.name}'s profile picture`}
                               className="rounded-full"
                             />
@@ -282,41 +279,38 @@ export default function TestimonialSlider() {
                       </div>
                       
                       {/* Date */}
-                      <div className="mt-2 text-xs text-neutral-300">{testimonial.date}</div>
+                      <div className="mt-1 text-xs text-neutral-300">{testimonial.date}</div>
                     </div>
                   </div>
                 </div>
               );
             })}
-              </div>
           </div>
+        </div>
 
         {/* Navigation Controls - Positioned for better mobile touch */}
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-1">
-            <Button
+          <Button
             onClick={handlePrev}
             variant="outline"
-              size="icon"
-            className="w-8 h-8 rounded-full bg-black/40 border border-neutral-700/50 text-white hover:bg-black/60 z-40 touch-manipulation"
-            >
-            <ChevronLeft className="h-4 w-4" />
+            size="icon"
+            className="w-7 h-7 rounded-full bg-black/40 border border-neutral-700/50 text-white hover:bg-black/60 z-40 touch-manipulation"
+          >
+            <ChevronLeft className="h-3 w-3" />
             <span className="sr-only">Previous</span>
-            </Button>
+          </Button>
           
-            <Button
+          <Button
             onClick={handleNext}
             variant="outline"
-              size="icon"
-            className="w-8 h-8 rounded-full bg-black/40 border border-neutral-700/50 text-white hover:bg-black/60 z-40 touch-manipulation"
-            >
-            <ChevronRight className="h-4 w-4" />
+            size="icon"
+            className="w-7 h-7 rounded-full bg-black/40 border border-neutral-700/50 text-white hover:bg-black/60 z-40 touch-manipulation"
+          >
+            <ChevronRight className="h-3 w-3" />
             <span className="sr-only">Next</span>
-            </Button>
+          </Button>
         </div>
       </div>
-      
-      {/* Empty space - minimal */}
-      <div className="flex justify-center"></div>
     </div>
   )
 }

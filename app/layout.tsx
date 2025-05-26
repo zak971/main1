@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, Poppins } from "next/font/google"
+import { Inter, Poppins, Montserrat } from "next/font/google"
 import "./globals.css"
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -24,72 +24,92 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700', '800'],
 })
 
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+})
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://goacarrental.in"),
+  title: {
+    default: "Goa Car Rental - Self Drive Cars, Airport Transfer & Chauffeur Service",
+    template: "%s | Goa Car Rental"
+  },
+  description: "Premium car rental services in Goa offering self-drive cars, airport transfers, and chauffeur services. Book your ride now!",
+  keywords: ["car rental goa", "self drive cars goa", "airport transfer goa", "chauffeur service goa"],
+  authors: [{ name: "Goa Car Rental" }],
+  creator: "Goa Car Rental",
+  publisher: "Goa Car Rental",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://goacarrental.in",
+    siteName: "Goa Car Rental",
+    title: "Goa Car Rental - Self Drive Cars, Airport Transfer & Chauffeur Service",
+    description: "Premium car rental services in Goa offering self-drive cars, airport transfers, and chauffeur services. Book your ride now!",
+    images: [
+      {
+        url: "/images/rename.png",
+        width: 1200,
+        height: 630,
+        alt: "Goa Car Rental",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Goa Car Rental - Self Drive Cars, Airport Transfer & Chauffeur Service",
+    description: "Premium car rental services in Goa offering self-drive cars, airport transfers, and chauffeur services. Book your ride now!",
+    images: ["/images/rename.png"],
+    creator: "@goacarrental",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: "your-google-site-verification",
+    yandex: "your-yandex-verification",
+    yahoo: "your-yahoo-verification",
+  },
+  alternates: {
+    canonical: "https://goacarrental.in",
+    languages: {
+      'en-IN': 'https://goacarrental.in',
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/tablogo.png', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/tablogo.png'
+  },
+  category: 'car rental',
+  classification: 'business',
+  referrer: 'origin-when-cross-origin',
+}
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#ffffff",
-}
-
-export const metadata: Metadata = {
-  title: "Self Drive Car Rental in Goa | Affordable & Easy Booking",
-  description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
-  keywords: "car rental goa, self drive car goa, luxury car rental goa, car hire goa, best car rental in goa, affordable car rental in goa, goa car rental, goa car hire, goa car rental service",
-  metadataBase: process.env.NODE_ENV === 'development' 
-    ? new URL('https://localhost:3000') 
-    : new URL('https://www.goacarrental.in'),
-  alternates: {
-    canonical: "https://www.goacarrental.in",
-    languages: {
-      'en-IN': 'https://www.goacarrental.in',
-      'en-US': 'https://www.goacarrental.in',
-      'en-GB': 'https://www.goacarrental.in',
-    },
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_IN',
-    url: 'https://www.goacarrental.in',
-    siteName: 'GoaCarRental.in',
-    title: "Self Drive Car Rental in Goa | Affordable & Easy Booking",
-    description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
-    images: [{
-      url: 'https://www.goacarrental.in/images/logo.png',
-      width: 1200,
-      height: 630,
-      alt: 'Goa Car Rental - Your Trusted Car Rental Partner',
-      type: 'image/png'
-    }]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@goacarrental',
-    title: "Affordable Self Drive Car Rental in Goa | No Hidden Charges | GoaCarRental.in",
-    description: "Explore Goa on your terms with affordable self-drive car rentals. Choose from a wide range of well-maintained cars with 24/7 service. No hidden charges – only at GoaCarRental.in!",
-    images: ['https://www.goacarrental.in/images/logo.png'],
-    creator: '@goacarrental'
-  },
-  other: {
-    'image': 'https://www.goacarrental.in/images/logo.png',
-    'og:image': 'https://www.goacarrental.in/images/logo.png',
-    'og:image:width': '1200',
-    'og:image:height': '630',
-    'og:image:alt': 'Goa Car Rental - Your Trusted Car Rental Partner',
-    'twitter:image': 'https://www.goacarrental.in/images/logo.png',
-    'twitter:image:alt': 'Goa Car Rental - Your Trusted Car Rental Partner',
-    'robots': 'index, follow, max-image-preview:large',
-    'googlebot': 'index, follow, max-image-preview:large'
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", sizes: "32x32", type: "image/png" }
-    ],
-    apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }
-    ]
-  }
+  themeColor: "#000000",
 }
 
 export default function RootLayout({
@@ -98,7 +118,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
         {/* Single set of preconnects */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,6 +126,14 @@ export default function RootLayout({
         
         {/* Prefetch other critical resources */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/tablogo.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/tablogo.png" />
+        <meta name="msapplication-TileImage" content="/tablogo.png" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" content="#000000" />
       </head>
       <body className={inter.className}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900/20 via-neutral-900/10 to-transparent opacity-10 mix-blend-overlay" />

@@ -44,7 +44,7 @@ export default function LuxuryCarsPage() {
   return (
     <div className="min-h-screen">
       {/* Cars Grid Section - Optimized */}
-      <section className="relative py-12 sm:py-16 overflow-hidden">
+      <section className="relative py-8 sm:py-10 overflow-hidden">
         {/* Background Layers - Optimized */}
         <div className="fixed inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-10 mix-blend-overlay" />
@@ -55,22 +55,19 @@ export default function LuxuryCarsPage() {
         <div className="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 bg-gray-800/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-48 h-48 sm:w-72 sm:h-72 bg-gray-800/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
-        <div className="container relative px-4 sm:px-6 mx-auto">
+        <div className="container relative px-4 sm:px-6 mx-auto pt-12 sm:pt-16">
           {/* Section Header - Optimized */}
-          <div className="flex flex-col items-center mb-12 sm:mb-16 text-center pt-10">
-            <div className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
-              <span className="text-xs sm:text-sm font-medium text-white tracking-wide uppercase">Luxury Fleet</span>
-            </div>
-            
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white mb-2">
+          <div className="flex flex-col items-center mb-6 text-center">
+           
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-2">
               Premium Luxury Cars in Goa <br /> Experience Unmatched Elegance
             </h1>
             <p className="mt-1 max-w-4xl text-base sm:text-lg text-gray-300 leading-relaxed px-4">
-            Indulge in the ultimate luxury car rental experience in Goa. Choose from our exclusive fleet of high-end vehicles featuring top brands, plush interiors, and first-class service — perfect for weddings, business trips, or luxury travel.
+              Indulge in the ultimate luxury car rental experience in Goa. Choose from our exclusive fleet of high-end vehicles featuring top brands, plush interiors, and first-class service — perfect for weddings, business trips, or luxury travel.
             </p>
 
             {/* Search Filter */}
-            <div className="w-full max-w-lg mt-6 sm:mt-8">
+            <div className="w-full max-w-2xl mt-6">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <Search className="w-5 h-5 text-gray-400" />
@@ -80,7 +77,7 @@ export default function LuxuryCarsPage() {
                   placeholder="Search by car name or type..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-gray-400 py-6 focus:ring-2 focus:ring-orange-400/50 focus:border-orange-400/50 shadow-lg"
+                  className="pl-10 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-gray-400 py-4 focus:ring-2 focus:ring-orange-400/50 focus:border-orange-400/50 shadow-lg"
                 />
                 {searchQuery && (
                   <button
@@ -96,20 +93,20 @@ export default function LuxuryCarsPage() {
           </div>
 
           {/* All Cars Section */}
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Luxury Cars</h2>
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Luxury Cars</h2>
             {isLoading ? (
               <div className="flex justify-center items-center h-64">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-400"></div>
               </div>
             ) : filteredCars.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredCars.map((car) => (
                   <LuxuryCarCard key={car.id} car={car} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12">
+              <div className="text-center py-8">
                 <p className="text-xl text-gray-300">No cars found matching "{searchQuery}"</p>
                 <button 
                   onClick={() => setSearchQuery("")}
@@ -122,11 +119,11 @@ export default function LuxuryCarsPage() {
           </div>
 
           {/* Contact Support */}
-          <div className="text-center mt-12">
+          <div className="max-w-4xl mx-auto text-center mt-12">
             <p className="text-gray-400 mb-4">Need assistance with your luxury car rental?</p>
             <a 
               href="tel:+919307055218" 
-              className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300"
+              className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300 text-base font-medium"
             >
               Contact Luxury Support
             </a>

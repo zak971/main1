@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { Car } from "lucide-react"
 
 export function HeroCarousel() {
   return (
@@ -13,7 +15,7 @@ export function HeroCarousel() {
         {/* Image */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image
-            src="/images/TRY1.avif"
+            src="/images/hero/hero1.jpg"
             alt="Car Rental in Goa"
             fill
             priority
@@ -25,9 +27,10 @@ export function HeroCarousel() {
               objectPosition: 'center bottom',
               objectFit: 'cover',
             }}
-            onLoadingComplete={(img) => {
-              img.classList.add('opacity-100')
-              img.classList.remove('opacity-0')
+            onLoad={(e) => {
+              const img = e.target as HTMLImageElement;
+              img.classList.add('opacity-100');
+              img.classList.remove('opacity-0');
             }}
           />
         </div>
@@ -67,17 +70,62 @@ export function HeroCarousel() {
             </h2>
           </div>
           <div className="animate-fade-in-up">
-            <Button 
-              asChild
-              size="lg" 
-              className="group bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-500 text-gray-900 font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.5)] shadow-xl active:scale-95 py-2 xs:py-3 sm:py-4 md:py-5 lg:py-6 px-3 xs:px-4 sm:px-5 md:px-6 lg:px-7 rounded-xl border-2 border-amber-300/30 text-xs xs:text-sm sm:text-base md:text-lg"
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ 
+                scale: 1, 
+                opacity: 1,
+                transition: {
+                  duration: 0.5,
+                  ease: "easeOut"
+                }
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Link href="/cars" className="flex items-center justify-center space-x-2 sm:space-x-3">
-                <span className="hidden sm:inline">Book Now – Start Your Journey Today</span>
-                <span className="sm:hidden">VIEW FLEET</span>
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 flex-shrink-0" />
+              <Link 
+                href="/self-drive-cars" 
+                className="group relative inline-flex items-center justify-center bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-500 text-gray-900 font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(251,191,36,0.5)] shadow-xl active:scale-95 py-2.5 sm:py-3 md:py-3.5 px-4 sm:px-5 md:px-6 rounded-xl border-2 border-amber-300/30 text-sm sm:text-base md:text-lg overflow-hidden"
+              >
+                <motion.div
+                  animate={{
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                >
+                  <Car className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:scale-110" />
+                </motion.div>
+                <span className="mx-2 hidden sm:inline">Book Now – Start Your Journey Today</span>
+                <span className="mx-2 sm:hidden">VIEW FLEET</span>
+                <motion.div
+                  animate={{
+                    x: [0, 5, 0]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                >
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+                </motion.div>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-300/30 to-amber-400/0"
+                  animate={{
+                    x: ["-100%", "100%"]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
               </Link>
-            </Button>
+            </motion.div>
           </div>
         </div>
       </div>

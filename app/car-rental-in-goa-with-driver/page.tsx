@@ -106,9 +106,17 @@ export default function ChauffeurServicePage() {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
               "reviewCount": "200",
+              "bestRating": "5",
+              "worstRating": "1",
               "itemReviewed": {
                 "@type": "Service",
-                "name": "Car Rental in Goa with Driver"
+                "name": "Car Rental in Goa with Driver",
+                "description": "Professional chauffeur service in Goa with luxury vehicles and experienced drivers. Available for all your transportation needs.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "Goa Car Rental",
+                  "url": "https://goacarrental.in"
+                }
               }
             },
             "featureList": [

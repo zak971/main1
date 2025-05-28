@@ -127,9 +127,17 @@ export default function LuxuryCarsLayout({
               "@type": "AggregateRating",
               "ratingValue": "4.9",
               "reviewCount": "120",
+              "bestRating": "5",
+              "worstRating": "1",
               "itemReviewed": {
                 "@type": "Service",
-                "name": "Luxury Car Rental in Goa"
+                "name": "Luxury Car Rental in Goa",
+                "description": "Premium luxury car rental service in Goa offering high-end vehicles including Mercedes, BMW, and Audi. Professional chauffeur service available.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "Goa Car Rental",
+                  "url": "https://goacarrental.in"
+                }
               }
             },
             "featureList": [

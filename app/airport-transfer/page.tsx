@@ -99,9 +99,16 @@ export default function AirportTransferPage() {
               "@type": "AggregateRating",
               "ratingValue": "4.8",
               "reviewCount": "150",
+              "bestRating": "5",
+              "worstRating": "1",
               "itemReviewed": {
                 "@type": "Service",
-                "name": "Airport Transfer Service in Goa"
+                "name": "Airport Transfer Service in Goa",
+                "description": "Professional airport transfer service in Goa with reliable drivers and premium vehicles. Available 24/7 for Goa International Airport (Dabolim) and Mopa Airport transfers.",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "Goa Car Rental"
+                }
               }
             },
             "featureList": [

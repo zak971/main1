@@ -139,8 +139,11 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
               {/* Main Content */}
               <div className="lg:col-span-2">
                 <div className="bg-black/30 backdrop-blur-sm rounded-xl border border-white/5 p-6 sm:p-8 md:p-10">
-                  <div className="prose prose-invert prose-lg max-w-none">
-                    <BlogContent content={blog.content} />
+                  <div className="prose prose-lg prose-invert max-w-none">
+                    <div 
+                      className="text-gray-200 space-y-6"
+                      dangerouslySetInnerHTML={{ __html: blog.content }} 
+                    />
                   </div>
                   
                   <div className="mt-16 pt-8 border-t border-white/10">

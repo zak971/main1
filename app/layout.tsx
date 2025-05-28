@@ -82,8 +82,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "your-google-site-verification",
-    yandex: "your-yandex-verification",
-    yahoo: "your-yahoo-verification",
+ 
   },
   alternates: {
     canonical: "https://goacarrental.in",
@@ -102,6 +101,13 @@ export const metadata: Metadata = {
   category: 'car rental',
   classification: 'business',
   referrer: 'origin-when-cross-origin',
+  other: {
+    'msapplication-TileColor': '#000000',
+    'theme-color': '#000000',
+    'format-detection': 'telephone=no',
+    'viewport': 'width=device-width, initial-scale=1.0',
+    'X-UA-Compatible': 'IE=edge',
+  }
 }
 
 export const viewport: Viewport = {

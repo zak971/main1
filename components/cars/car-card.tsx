@@ -47,7 +47,7 @@ export function CarCard({ car }: CarCardProps) {
         <div className="relative w-full aspect-[16/9] overflow-hidden">
           <Image
             src={car.image ? getImageUrl(car.image) : getImageUrl('/car-placeholder.jpg')}
-            alt={`${car.name} - ${car.type} car rental in Goa`}
+            alt={`${car.name} - ${car.type} car available for rent in Goa with ${car.seats} seats and ${car.transmission} transmission`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"

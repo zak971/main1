@@ -105,7 +105,7 @@ export default function AboutUs() {
             className="relative"
           >
             At <motion.span variants={highlightVariants} className="inline-block"><a href="/" target="_blank" rel="noopener noreferrer"><strong>Goa Car Rental</strong></a></motion.span>, we specialize in providing dependable, affordable, and convenient <motion.span variants={highlightVariants} className="inline-block"><a href="/self-drive-cars" target="_blank" rel="noopener noreferrer"><strong>self-drive</strong></a></motion.span>
-            and <motion.span variants={highlightVariants} className="inline-block"><a href="luxary-cars" target="_blank" rel="noopener noreferrer"><strong>Luxary car rental</strong></a></motion.span> services across Goa. Whether you're visiting Goa's stunning beaches, vibrant markets, or offbeat destinations, 
+            and <motion.span variants={highlightVariants} className="inline-block"><a href="/luxury-cars" target="_blank" rel="noopener noreferrer"><strong>Luxury car rental</strong></a></motion.span> services across Goa. Whether you're visiting Goa's stunning beaches, vibrant markets, or offbeat destinations, 
           our fleet of well-maintained vehicles — from fuel-efficient hatchbacks to premium SUVs — ensures you travel in comfort and style.
           </motion.p>
           

@@ -29,9 +29,11 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Disable automatic image preloading
+    // Enable static image optimization
     unoptimized: false,
     disableStaticImages: false,
+    // Add local image domains
+    domains: ['localhost'],
   },
 
   // Modern optimizations

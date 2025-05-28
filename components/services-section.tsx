@@ -94,11 +94,11 @@ export function ServicesSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-2xl font-semibold text-white mb-2">Self Drive Cars</h3>
-                <p className="text-gray-300 text-sm">Freedom to explore at your own pace</p>
+                <p className="text-gray-300 text-sm">Freedom to explore Goa on your own terms</p>
               </div>
             </div>
             <div className="p-6">
-              <p className="relative text-gray-400 mb-4">Choose from our wide range of self-drive cars for the ultimate freedom to explore Goa at your own pace.</p>
+              <p className="relative text-gray-400 mb-4">Enjoy complete flexibility with our wide range of self-drive cars. Whether it's a short getaway or a week-long vacation, drive at your pace — with zero hassle.</p>
               <ul className="relative space-y-2 mb-6">
                 <motion.li 
                   initial={{ opacity: 0, x: -20 }}
@@ -158,11 +158,11 @@ export function ServicesSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-2xl font-semibold text-white mb-2">Chauffeur Service</h3>
-                <p className="text-gray-300 text-sm">Professional drivers for a comfortable journey</p>
+                <p className="text-gray-300 text-sm">Ride in comfort with professional chauffeurs</p>
               </div>
             </div>
             <div className="p-6">
-              <p className="relative text-gray-400 mb-4">Professional chauffeurs for a comfortable and hassle-free travel experience across Goa.</p>
+              <p className="relative text-gray-400 mb-4">Enjoy hassle-free travel across Goa with our experienced drivers who know the local routes and ensure a smooth, secure, and on-time journey — 24/7.</p>
               <ul className="relative space-y-2 mb-6">
                 <motion.li 
                   initial={{ opacity: 0, x: -20 }}
@@ -196,7 +196,7 @@ export function ServicesSection() {
                 </motion.li>
               </ul>
               <Link 
-                href="/chauffeur-service" 
+                href="/car-rental-in-goa-with-driver" 
                 className="inline-flex items-center text-orange-400 hover:text-orange-300 transition-colors group/link"
               >
                 <span className="mr-2">Learn more</span>
@@ -222,11 +222,11 @@ export function ServicesSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-2xl font-semibold text-white mb-2">Airport Transfer</h3>
-                <p className="text-gray-300 text-sm">Seamless airport pickup and drop service</p>
+                <p className="text-gray-300 text-sm">Stress-free airport pickup & drop across Goa</p>
               </div>
             </div>
             <div className="p-6">
-              <p className="relative text-gray-400 mb-4">Seamless airport pickup and drop service for a stress-free start to your Goa vacation.</p>
+              <p className="relative text-gray-400 mb-4">Start or end your trip the right way with our punctual and reliable airport transfer service — no delays, no surprises.</p>
               <ul className="relative space-y-2 mb-6">
                 <motion.li 
                   initial={{ opacity: 0, x: -20 }}

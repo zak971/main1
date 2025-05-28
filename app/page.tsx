@@ -148,7 +148,7 @@ export default function Home() {
                     "@type": "Service",
                     "name": "Chauffeur Service",
                     "description": "Professional chauffeur service with luxury vehicles in Goa.",
-                    "url": "https://goacarrental.in/chauffeur-service"
+                    "url": "https://goacarrental.in/car-rental-in-goa-with-driver"
                   }
                 }
               ]

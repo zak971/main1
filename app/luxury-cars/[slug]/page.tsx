@@ -7,17 +7,12 @@ import Image from "next/image"
 import { Star, Shield, Clock, CheckCircle, MapPin, ArrowLeft, Users, Settings, Fuel, Car, Phone, PhoneIcon as WhatsApp } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { CarReviews } from "@/components/cars/car-reviews"
 
 export default function LuxuryCarDetailPage({ params }: { params: { slug: string } }) {
   const [car, setCar] = useState<CarType | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState("")
-
-  // Calculate average rating
-  const averageRating = car?.reviews?.length 
-    ? Math.round(car.reviews.reduce((acc, review) => acc + review.rating, 0) / car.reviews.length)
-    : 0
+  const [imageError, setImageError] = useState(false)
 
   useEffect(() => {
     const fetchCar = async () => {
@@ -62,27 +57,40 @@ export default function LuxuryCarDetailPage({ params }: { params: { slug: string
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-neutral-900 to-neutral-800">
       <div className="container relative mx-auto px-4 py-6 pt-20 sm:pt-24">
-        
-
         {/* Car Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {/* Image Gallery */}
           <div className="space-y-4">
             <div className="relative aspect-video rounded-lg overflow-hidden">
+              {imageError ? (
+                <div className="absolute inset-0 bg-gray-800 flex items-center justify-center">
+                  <p className="text-gray-400">Image not available</p>
+                </div>
+              ) : (
               <Image
-                src={selectedImage}
+                  src={selectedImage || car.image}
                 alt={car.alt || car.name}
                 fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
                 priority
+                  unoptimized
+                  onError={() => {
+                    setImageError(true)
+                    console.error(`Failed to load image: ${selectedImage || car.image}`)
+                  }}
               />
+              )}
             </div>
             <div className="grid grid-cols-3 gap-4">
               {(car.images || [car.image]).map((image, index) => (
                 image && (
                   <button
                     key={index}
-                    onClick={() => setSelectedImage(image)}
+                    onClick={() => {
+                      setSelectedImage(image)
+                      setImageError(false)
+                    }}
                     className={`relative aspect-video rounded-lg overflow-hidden ${
                       selectedImage === image ? "ring-2 ring-orange-400" : ""
                     }`}
@@ -91,7 +99,14 @@ export default function LuxuryCarDetailPage({ params }: { params: { slug: string
                       src={image}
                       alt={`${car.name} - Image ${index + 1}`}
                       fill
+                      sizes="(max-width: 768px) 33vw, (max-width: 1200px) 16vw, 11vw"
                       className="object-cover"
+                      unoptimized
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement
+                        target.src = '/images/car-placeholder.jpg'
+                        console.error(`Failed to load image: ${image}`)
+                      }}
                     />
                   </button>
                 )
@@ -104,20 +119,6 @@ export default function LuxuryCarDetailPage({ params }: { params: { slug: string
             <div>
               <h1 className="text-3xl font-bold text-white mb-2">{car.name}</h1>
               <p className="text-gray-400">{car.type}</p>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-5 h-5 ${i < averageRating ? "text-orange-400 fill-current" : "text-gray-600"}`}
-                  />
-                ))}
-              </div>
-              <span className="text-gray-400">
-                {car.reviews?.length || 0} reviews
-              </span>
             </div>
 
             <div className="text-3xl font-bold text-white">
@@ -179,38 +180,6 @@ export default function LuxuryCarDetailPage({ params }: { params: { slug: string
                 ))}
               </div>
             </div>
-
-            {/* Reviews Section */}
-            {car.reviews && car.reviews.length > 0 && (
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                <h2 className="text-xl font-semibold text-white mb-6">Customer Reviews</h2>
-                <div className="space-y-6">
-                  {car.reviews.map((review) => (
-                    <div key={review.id} className="border-b border-white/10 last:border-0 pb-6 last:pb-0">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center space-x-2">
-                          <div className="flex">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className={`w-4 h-4 ${
-                                  i < review.rating
-                                    ? "text-orange-400 fill-current"
-                                    : "text-gray-600"
-                                }`}
-                              />
-                            ))}
-                          </div>
-                          <span className="font-medium text-white">{review.userName}</span>
-                        </div>
-                        <span className="text-sm text-gray-400">{review.date}</span>
-                      </div>
-                      <p className="text-gray-300">{review.comment}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white">

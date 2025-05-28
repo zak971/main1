@@ -50,7 +50,7 @@ export function Navbar() {
   const serviceLinks = [
     { href: "/self-drive-cars", label: "Self Drive Cars" },
     { href: "/airport-transfer", label: "Airport Transfers" },
-    { href: "/chauffeur-service", label: "Chauffeur Service" },
+    { href: "/car-rental-in-goa-with-driver", label: "Chauffeur Service" },
   ]
 
   return (

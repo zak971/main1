@@ -16,7 +16,7 @@ export function HeroCarousel() {
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image
             src="/images/hero/hero1.jpg"
-            alt="Car Rental in Goa"
+            alt="Premium car rental services in Goa - Self drive cars, airport transfers, and chauffeur services"
             fill
             priority
             loading="eager"

@@ -6,5 +6,5 @@ export interface BlogType {
   content: string
   coverImage: string
   publishedAt: string
-  readTime: string
+  readTime: number
 } 

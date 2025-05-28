@@ -1,12 +1,23 @@
 # https://www.goacarrental.in robots.txt
 User-agent: *
 Allow: /
-Allow: /blogs/
-Allow: /cars/
 
-# Disallow admin area
+# Allow specific paths
+Allow: /self-drive-cars/
+Allow: /luxury-cars/
+Allow: /airport-transfer/
+Allow: /car-rental-in-goa-with-driver/
+Allow: /blogs/
+Allow: /images/
+Allow: /fonts/
+Allow: /css/
+Allow: /js/
+
+# Disallow admin area and API
 Disallow: /admin/
 Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
 
 # Sitemap location
 Sitemap: https://www.goacarrental.in/sitemap.xml 

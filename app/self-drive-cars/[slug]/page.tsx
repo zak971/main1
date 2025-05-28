@@ -74,7 +74,7 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
               <div className="relative aspect-video rounded-lg overflow-hidden">
                 <Image
                   src={selectedImage}
-                  alt={car.name}
+                  alt={`${car.name} - ${car.type} car rental in Goa with ${car.seats} seats, ${car.transmission} transmission, and ${car.fuelType} fuel type`}
                   fill
                   className="object-cover"
                   priority
@@ -92,7 +92,7 @@ export default function CarDetailPage({ params }: { params: { slug: string } }) 
                 >
                   <Image
                     src={image}
-                    alt={`${car.name} - Image ${index + 1}`}
+                    alt={`${car.name} - ${car.type} car rental in Goa - ${index === 0 ? 'Front view' : index === 1 ? 'Side view' : index === 2 ? 'Rear view' : `View ${index + 1}`}`}
                     fill
                     className="object-cover"
                   />

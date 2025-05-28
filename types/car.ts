@@ -16,7 +16,7 @@ export interface CarType {
   available: boolean
   description: string
   features: string[]
-  reviews: {
+  reviews?: {
     id: string
     rating: number
     comment: string

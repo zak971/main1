@@ -41,7 +41,7 @@ export function CarLinksFooter() {
       {cars.map((car) => (
         <li key={car.id}>
           <Link
-            href={`/cars/${car.id}`}
+            href={`/self-drive-cars/${car.slug}`}
             className="text-neutral-300 hover:text-white transition-colors"
           >
             {car.name}

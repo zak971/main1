@@ -1,63 +1,110 @@
-import type { CarType, Review } from "@/types/car"
+import type { CarType } from "@/types/car"
 import { generateSlug } from "@/lib/utils"
 
 // Luxury cars data
 export const luxuryCars: CarType[] = [
   {
-    id: "luxury-1",
-    name: "Mercedes-Benz S-Class",
-    slug: generateSlug("Mercedes-Benz S-Class"),
-    type: "Luxury Sedan",
+    id: "luxury-2",
+    name: "BMW 7 Series",
+    slug: "bmw-7-series",
+    type: "Luxury",
     carType: "Luxury Sedan",
     price: 15000,
-    seats: 5,
+    seats: 4,
     transmission: "Automatic",
     fuelType: "Petrol",
-    mileage: "8-10 km/l",
-    image: "/images/luxary/merc1.webp",
-    alt: "Mercedes-Benz S-Class luxury car rental in Goa",
+    mileage: "11–13 km/l",
+    image: "/images/luxury/bmw.jpg",
+    alt: "BMW 7 Series luxury car rental in Goa",
     images: [
-      "/images/luxary/merc1.webp",
-      "/images/luxary/merc2.webp",
-      "/images/luxary/merc4.webp",
-      
+      "/images/luxury/bmw.jpg"
     ],
     featured: true,
-    description: "Experience ultimate luxury with the Mercedes-Benz S-Class. This flagship sedan offers unparalleled comfort, advanced technology, and sophisticated styling. Perfect for those seeking the pinnacle of automotive luxury in Goa.",
+    description: "Indulge in unmatched elegance and performance with our BMW 7 Series, the pinnacle of German automotive luxury. Designed for discerning travelers, this executive sedan delivers a smooth, commanding drive with state-of-the-art innovation, exquisite craftsmanship, and comfort that redefines premium travel in Goa.",
     available: true,
     features: [
-      "Premium Leather Interior",
-      "Panoramic Sunroof",
-      "Advanced Driver Assistance",
-      "Premium Sound System",
-      "Ambient Lighting",
-      "Massage Seats",
-      "Air Suspension",
-      "Night Vision Camera",
-      "Wireless Charging",
-      "250 km/h Top Speed",
-      "76L Fuel Tank",
-      "550L Boot Space"
-    ],
-    reviews: [
-      
+      "Ventilated leather seats",
+  "Panoramic sunroof",
+  "Driver assist tech",
+  "B&W surround sound",
+  "Rear entertainment",
+  "Air suspension",
+  "Heads-up display",
+  "360° camera"
     ]
   },
-  
+
+  {
+    id: "luxury-3",
+    name: "Audi A8",
+    slug: "audi-a8",
+    type: "Luxury",
+    carType: "Luxury Sedan",
+    price: 16000,
+    seats: 4,
+    transmission: "Automatic",
+    fuelType: "Petrol",
+    mileage: "10-12 km/l",
+    image: "/images/luxury/audi-a8.jpg",
+    alt: "Audi A8 luxury car rental in Goa",
+    images: [
+      "/images/luxury/audi-a8.jpg"
+    ],
+    featured: true,
+    description: "Drive the future of luxury with our Audi A8. This sophisticated sedan combines cutting-edge technology with elegant design, offering a premium driving experience that's second to none.",
+    available: true,
+    features: [
+      "Virtual cockpit",
+      "Massage seats",
+      "Bang & Olufsen sound system",
+      "Matrix LED headlights",
+      "Air suspension",
+      "Gesture control",
+      "Premium leather interior",
+      "Advanced safety features"
+    ]
+  },
+  {
+    id: "luxury-4",
+    name: "BMW 3 Series",
+    slug: "bmw-3-series",
+    type: "Luxury",
+    carType: "Luxury Sedan",
+    price: 12500,
+    seats: 5,
+    transmission: "Automatic",
+    fuelType: "Diesel",
+    mileage: "16-18 km/l",
+    image: "/images/luxury/bmw3se.jpg",
+    alt: "BMW 3 Series Gran Limousine 320LD luxury car rental in Goa",
+    images: [
+      "/images/luxury/bmw3se.jpg"
+    ],
+    featured: true,
+    description:
+      "Experience long-wheelbase luxury in the BMW 3 Series Gran Limousine 320LD. With extra legroom, executive styling, and exceptional ride comfort, it's the perfect choice for business clients and elite travellers in Goa.",
+    available: true,
+    features: [
+      "Long wheelbase for extra rear legroom",
+      "Panoramic sunroof",
+      "BMW iDrive system with touchscreen",
+      "Harman Kardon sound system",
+      "Ambient interior lighting",
+      "Wireless Apple CarPlay & Android Auto",
+      "Rear AC vents with digital control",
+      "Advanced safety features"
+    ]
+  }
 ]
 
-// Function to get all luxury cars
-export async function getLuxuryCars(): Promise<CarType[]> {
-  // In a real application, this would fetch from an API
+// In a real application, these functions would interact with a database
+export async function getLuxuryCars(featuredOnly = false): Promise<CarType[]> {
+  if (featuredOnly) {
+    return luxuryCars.filter((car) => car.featured)
+  }
   return luxuryCars
 }
 
-// Function to get a specific luxury car by ID
-export async function getLuxuryCarById(id: string): Promise<CarType | undefined> {
-  return luxuryCars.find(car => car.id === id)
-}
-
-// Function to get a specific luxury car by slug
-export async function getLuxuryCarBySlug(slug: string): Promise<CarType | undefined> {
-  return luxuryCars.find(car => car.slug === slug)
+export async function getLuxuryCarBySlug(slug: string): Promise<CarType | null> {
+  return luxuryCars.find((car) => car.slug === slug) || null
 } 
